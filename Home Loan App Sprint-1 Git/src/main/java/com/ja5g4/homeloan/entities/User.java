@@ -11,7 +11,7 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "role", discriminatorType = DiscriminatorType.INTEGER)
+@DiscriminatorColumn(name = "role_Type", discriminatorType = DiscriminatorType.INTEGER)
 @DiscriminatorValue(value = "1")
 public class User {
 
