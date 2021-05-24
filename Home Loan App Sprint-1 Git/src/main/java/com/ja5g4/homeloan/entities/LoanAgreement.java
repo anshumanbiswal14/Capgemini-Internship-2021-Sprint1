@@ -2,9 +2,19 @@ package com.ja5g4.homeloan.entities;
 
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class LoanAgreement {
+	
+	@Id
 	private long loanAgreementId;
+	@Column
 	private long loanApplicationId;
+	@OneToMany
 	private Set<EMI> allemis;
 	
 	public LoanAgreement() {

@@ -1,8 +1,17 @@
 package com.ja5g4.homeloan.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class User {
+
+@Id	
 private int userId;
+@Column
 private String password;
+@Column
 private String role;
 
 public User() {

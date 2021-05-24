@@ -1,16 +1,35 @@
 package com.ja5g4.homeloan.entities;
 
 import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class LoanApplication {
 	
+	@Id
 	private long applicationId;
+	@Column
+	@Temporal(TemporalType.DATE)
 	private LocalDate applicationDate;
+	@OneToOne
 	private Customer customer;
+	@Column
 	private double loanAppliedAmount;
+	@Column
 	private double loanApprovedAmount;
+	@Column
 	private boolean landVerificationApproval;
+	@Column
 	private boolean financeVerificationApproval;
+	@Column
 	private boolean adminApproval;
+	@Column
 	private Status status;
 	
 	public LoanApplication() {

@@ -2,8 +2,10 @@ package com.ja5g4.homeloan.entities;
 
 import java.time.LocalDate;
 
-public class Customer extends User {
 
+
+
+public class Customer extends User {
 private String customerName;
 private String mobileNumber;
 private String emailId;

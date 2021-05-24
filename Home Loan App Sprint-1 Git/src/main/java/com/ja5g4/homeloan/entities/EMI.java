@@ -2,12 +2,22 @@ package com.ja5g4.homeloan.entities;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class EMI {
 	
+	@Id
 	private long EMIId;
+	@Column
 	private LocalDate dueDate;
+	@Column
 	private double emiAmount;
+	@Column
 	private double loanAmount;
+	@Column
 	private double interestAmount;
 	
 	
