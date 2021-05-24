@@ -2,7 +2,8 @@ package com.ja5g4.homeloan.repository;
 
 import java.util.List;
 
-import com.cg.homeloan.entities.LoanApplication;
+
+import com.ja5g4.homeloan.entities.LoanApplication;
 
 public interface ILoanApplicationRepository {
 	

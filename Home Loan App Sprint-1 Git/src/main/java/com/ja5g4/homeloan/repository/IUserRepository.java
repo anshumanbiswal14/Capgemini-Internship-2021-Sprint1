@@ -1,6 +1,6 @@
 package com.ja5g4.homeloan.repository;
 
-import com.cg.homeloan.entities.User;
+import com.ja5g4.homeloan.entities.User;
 
 public interface IUserRepository {
 public  User addNewUser(User user);
