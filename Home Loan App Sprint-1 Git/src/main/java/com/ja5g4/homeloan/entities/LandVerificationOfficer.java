@@ -1,5 +1,10 @@
 package com.ja5g4.homeloan.entities;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue(value = "5")
 public class LandVerificationOfficer extends User {
 	
 	

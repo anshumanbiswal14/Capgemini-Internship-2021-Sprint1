@@ -2,10 +2,14 @@ package com.ja5g4.homeloan.entities;
 
 import java.time.LocalDate;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 
-
+@Entity
+@DiscriminatorValue(value = "3")
 public class Customer extends User {
+	
 private String customerName;
 private String mobileNumber;
 private String emailId;
