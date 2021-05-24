@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_6cwvABNWEeuoNvoC83aFlA">
+  <modelElement href="../entities/HomeLoanApp.uml#_zq7dkRNQEeuoNvoC83aFlA"/>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_6i9doBNWEeuoNvoC83aFlA" name="java">
+    <modelElement href="../entities/HomeLoanApp.uml#_0iDS0BNQEeuoNvoC83aFlA"/>
+    <visualProperties xmi:id="_6i9doRNWEeuoNvoC83aFlA" position="-115.0,50.0" size="-1.0,-1.0"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_6i2v8BNWEeuoNvoC83aFlA" name="com">
+    <modelElement href="../entities/HomeLoanApp.uml#_zq5oYBNQEeuoNvoC83aFlA"/>
+    <visualProperties xmi:id="_6i2v8RNWEeuoNvoC83aFlA" position="137.0,95.0" size="-1.0,-1.0" visible="false"/>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>
