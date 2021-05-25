@@ -2,11 +2,13 @@ package com.ja5g4.homeloan.entities;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,9 +20,9 @@ public class LoanApplication {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long applicationId;
 	@Column
-	@Temporal(TemporalType.DATE)
 	private LocalDate applicationDate;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_Info", referencedColumnName = "userId")
 	private Customer customer;
 	@Column
 	private double loanAppliedAmount;

@@ -2,11 +2,15 @@ package com.ja5g4.homeloan.entities;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -17,7 +21,9 @@ public class LoanAgreement {
 	private long loanAgreementId;
 	@Column
 	private long loanApplicationId;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "LOAN_EMI", joinColumns = @JoinColumn(name = "loanAgreementId" ),
+	inverseJoinColumns = @JoinColumn(name = "EMIId"))
 	private Set<EMI> allemis;
 	
 	public LoanAgreement() {
