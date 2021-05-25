@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+
 public class LoanApplication {
 	
 	@Id
@@ -35,6 +38,7 @@ public class LoanApplication {
 	@Column
 	private boolean adminApproval;
 	@Column
+	@Enumerated(EnumType.STRING)
 	private Status status;
 	
 	public LoanApplication() {
