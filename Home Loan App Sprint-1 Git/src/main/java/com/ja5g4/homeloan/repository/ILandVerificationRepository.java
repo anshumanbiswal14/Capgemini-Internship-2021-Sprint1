@@ -5,8 +5,8 @@ import com.ja5g4.homeloan.entities.LoanApplication;
 
 public interface ILandVerificationRepository extends JpaRepository<LoanApplication, Integer> {
 	
-		public void updateStatus(LoanApplication loanApplication);
 
-		}
+
+}
 
 
