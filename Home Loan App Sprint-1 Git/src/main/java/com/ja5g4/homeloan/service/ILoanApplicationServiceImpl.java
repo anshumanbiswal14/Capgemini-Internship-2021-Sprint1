@@ -32,7 +32,7 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 	public LoanApplication updateLoanApplication(LoanApplication loanApplication)
 			throws InvalidLoanApplicationException {
 		
-		Optional<LoanAgreement> optional = null;
+		Optional<LoanApplication> optional = null;
 		try {
 		
 		repository.save(loanApplication);
