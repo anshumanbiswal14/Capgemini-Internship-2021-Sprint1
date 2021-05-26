@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ja5g4.homeloan.entities.FinanceVerificationOfficer;
 import com.ja5g4.homeloan.entities.LoanApplication;
+import com.ja5g4.homeloan.exception.InvalidLoanApplicationException;
 import com.ja5g4.homeloan.service.IFinanceVerificationService;
 
 @RestController
@@ -19,8 +19,9 @@ public class FinanceVerificationController {
 	private IFinanceVerificationService service;
 
 	@PostMapping("/financestatus")
-	public FinanceVerificationOfficer updateStatus(@RequestBody LoanApplication loanapplication) {
-		return null;
+	public LoanApplication updateStatus(@RequestBody LoanApplication loanapplication) throws InvalidLoanApplicationException {
+		this.service.updateStatus(loanapplication);
+		return loanapplication;
 	}
 
 

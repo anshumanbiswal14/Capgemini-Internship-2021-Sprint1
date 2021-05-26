@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ja5g4.homeloan.entities.LandVerificationOfficer;
 import com.ja5g4.homeloan.entities.LoanApplication;
+import com.ja5g4.homeloan.exception.InvalidLoanApplicationException;
 import com.ja5g4.homeloan.service.ILandVerificationService;
 
 @RestController
@@ -18,7 +18,8 @@ public class LandVerificationController {
 	private ILandVerificationService service;
 	
 	@PostMapping("/landstatus")
-	public LandVerificationOfficer updateStatus(@RequestBody LoanApplication loanapplication) {
-		return null;
+	public LoanApplication updateStatus(@RequestBody LoanApplication loanapplication) throws InvalidLoanApplicationException {
+		this.service.updateStatus(loanapplication);
+		return loanapplication;
 	}
 }
