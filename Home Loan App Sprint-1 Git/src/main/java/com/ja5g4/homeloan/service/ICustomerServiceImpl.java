@@ -59,12 +59,12 @@ public class ICustomerServiceImpl implements ICustomerService  {
 	
 	@Transactional
 	@Override
-	public Customer deleteCustomer(Customer customer) throws CustomerNotFoundException {
+	public Customer deleteCustomer(int custid) throws CustomerNotFoundException {
 		
 		Optional<Customer> optional = null;
 		try {
-			optional = repository.findById(customer.getUserId());
-			repository.deleteById(customer.getUserId());
+			optional = repository.findById(custid);
+			repository.deleteById(custid);
 		} catch (Exception e) {
 			e.printStackTrace();
 			if(optional.get() == null) {

@@ -1,6 +1,9 @@
 package com.ja5g4.homeloan.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,15 +18,20 @@ import com.ja5g4.homeloan.service.ILoanAgreementService;
 
 
 @RestController
-@RequestMapping("/loanAgreement")
+@RequestMapping("/loanagreement")
 public class LoanAgreementController {
+	
+
+public LoanAgreementController() {
+	System.out.println("-----> Loan Agreement Rest Controller Working!");
+}
 
 @Autowired
 ILoanAgreementService loanAgreement_service;
 
 @GetMapping("/home")
 public String homeRequest() {
-	return "Welcome ";
+	return "Welcome : Home Loan Application (Version 1.0)";
 }
 
 @PostMapping("/add")
@@ -38,12 +46,21 @@ public LoanAgreement updateLoanAgreement(@RequestBody LoanAgreement loanAgreemen
 	return loanAgreement;
 }
 
-@DeleteMapping("/delete/{loanAgreementId}")
+@DeleteMapping("/delete/{loanid}")
 public LoanAgreement deleteLoanAgreement(@PathVariable("loanid") long loanAgreementId) throws InvalidLoanAgreementException {
 	return this.loanAgreement_service.deleteLoanAgreement(loanAgreementId);
 	
 }
+@GetMapping("/viewallloan")
+public List<LoanAgreement> retrieveAllLoanAgreement(@RequestBody LoanAgreement loanAgreement){
+	return this.loanAgreement_service.retrieveAllLoanAgreement();
+	
 
-
+}
+@GetMapping("/viewbyid/{loanid}")
+public LoanAgreement retrieveLoanAgreementById(@PathVariable("loanid") long loanAgreementId) throws InvalidLoanAgreementException{
+	return this.loanAgreement_service.retrieveLoanAgreementById(loanAgreementId);
+	
+}
 
 }

@@ -1,7 +1,6 @@
 package com.ja5g4.homeloan.controller;
 
 import java.time.LocalDate;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,19 +47,19 @@ public class CustomerServiceController {
 		return this.customerService.viewCustomer(custid);
 		
 	}
-	@PostMapping("/update/{custid}")
+	@PostMapping("/update")
 	public Customer updateCustomer(@RequestBody Customer customer) throws CustomerNotFoundException{
 		return this.customerService.updateCustomer(customer);
 		
 	}
-	@DeleteMapping("/delete")
-	public Customer deleteCustomer(@RequestBody Customer customer) throws CustomerNotFoundException{
-		return this.customerService.deleteCustomer(customer);
+	@DeleteMapping("/delete/{custid}")
+	public Customer deleteCustomer(@PathVariable("custid") int custid) throws CustomerNotFoundException{
+		return this.customerService.deleteCustomer(custid);
 		
 	}
 	@GetMapping("/viewall")
 	public List<Customer> viewAllCustomers(@RequestBody Customer customer){
-		return this.viewAllCustomers(customer);
+		return this.customerService.viewAllCustomers();
 		
 	}
 	@GetMapping("/viewbydate/{date}")
