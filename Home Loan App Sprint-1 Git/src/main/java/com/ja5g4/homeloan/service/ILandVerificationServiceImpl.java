@@ -2,6 +2,7 @@ package com.ja5g4.homeloan.service;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,6 +16,7 @@ public class ILandVerificationServiceImpl implements ILandVerificationService{
 	ILandVerificationRepository landVerificationRepository;
 	
 	@Override
+	@Transactional
 	public LoanApplication updateStatus (LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		Optional<LoanApplication> optional=null;
 		try {
@@ -22,7 +24,7 @@ public class ILandVerificationServiceImpl implements ILandVerificationService{
 			landVerificationRepository.save(loanApplication);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 			e.printStackTrace();
 			throw new InvalidLoanApplicationException("Loan application couldn't be Updated! ");
 
@@ -31,4 +33,3 @@ public class ILandVerificationServiceImpl implements ILandVerificationService{
 	}
 
 }
-//By Gaurav Shrivastava

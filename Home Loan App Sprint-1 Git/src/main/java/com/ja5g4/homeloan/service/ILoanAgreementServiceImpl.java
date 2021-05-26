@@ -1,10 +1,10 @@
 package com.ja5g4.homeloan.service;
 
 import java.util.List;
+
 import java.util.Optional;
 import javax.transaction.Transactional;
 
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 	@Autowired
 	ILoanAgreementRepository repository;
 	
-	@Transactional
+	
 	@Override
 	@Transactional
 	public LoanAgreement addLoanAgreement(LoanAgreement loanAgreement) {
@@ -32,7 +32,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		return loanAgreement;
 	}
 
-	@Transactional
+	
 	@Override
 	@Transactional
 	public LoanAgreement updateLoanAgreement(LoanAgreement loanAgreement) throws InvalidLoanAgreementException {
@@ -48,7 +48,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		return loanAgreement;
 	}
 
-	@Transactional
+	
 	@Override
 	@Transactional
 	public LoanAgreement deleteLoanAgreement(long loanAgreementId) throws InvalidLoanAgreementException {

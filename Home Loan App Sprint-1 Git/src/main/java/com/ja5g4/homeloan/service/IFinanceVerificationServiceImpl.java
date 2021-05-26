@@ -2,6 +2,7 @@ package com.ja5g4.homeloan.service;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ public class IFinanceVerificationServiceImpl implements IFinanceVerificationServ
 	IFinanceVerificationRepository verificationRepository;
 	
 	@Override
+	@Transactional
 	public LoanApplication updateStatus(LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		
 		Optional<FinanceVerificationOfficer> optional = null;
@@ -37,4 +39,3 @@ public class IFinanceVerificationServiceImpl implements IFinanceVerificationServ
 
 	
 }
-//By Gaurav Shrivastava

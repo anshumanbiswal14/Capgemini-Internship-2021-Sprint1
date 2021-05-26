@@ -76,18 +76,16 @@ public class ICustomerServiceImpl implements ICustomerService  {
 
 	@Override
 	public Customer viewCustomer(int custid) throws CustomerNotFoundException {
-		
-		Customer customer = new Customer();
-		customer.setUserId(custid);
-		
+	
+		Optional<Customer> optional = null;
 		try {
-			repository.findById(custid);
+			optional = repository.findById(custid);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new CustomerNotFoundException("Customer not found with the matching ID!");
 		}
-		return customer;
+		return optional.get();
 	}
 
 	@Override
