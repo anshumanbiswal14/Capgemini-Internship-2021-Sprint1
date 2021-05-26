@@ -12,6 +12,7 @@ public class ILandVerificationServiceImpl implements ILandVerificationService{
 
 	@Autowired
 	ILandVerificationRepository landVerificationRepository;
+	
 	@Override
 	public LoanApplication updateStatus (LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		Optional<LoanApplication> optional=null;
