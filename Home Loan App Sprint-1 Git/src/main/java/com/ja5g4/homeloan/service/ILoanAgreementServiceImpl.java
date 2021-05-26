@@ -34,7 +34,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		
 		Optional<LoanAgreement> optional = null;
 		try {
-		
+		optional = repository.findById(loanAgreement.getLoanAgreementId());
 		repository.save(loanAgreement);
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -77,7 +77,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		Optional<LoanAgreement> optional = null;
 		try {
 			optional = repository.findById(loanAgreementId);
-			repository.findById(loanAgreementId);
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 			if(optional.get() == null) {
