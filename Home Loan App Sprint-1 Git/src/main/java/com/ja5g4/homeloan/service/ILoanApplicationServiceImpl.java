@@ -34,7 +34,7 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 		
 		Optional<LoanApplication> optional = null;
 		try {
-		
+	    optional=	repository.findById(loanApplication.getApplicationId());
 		repository.save(loanApplication);
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -77,7 +77,7 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 		Optional<LoanApplication> optional = null;
 		try {
 			optional = repository.findById(loanApplicationId);
-			repository.findById(loanApplicationId);
+		
 		}catch (Exception e) {
 			e.printStackTrace();
 			if(optional.get() == null) {
