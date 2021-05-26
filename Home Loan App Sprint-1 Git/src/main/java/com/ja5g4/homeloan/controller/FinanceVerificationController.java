@@ -1,5 +1,6 @@
 package com.ja5g4.homeloan.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,5 +22,6 @@ public class FinanceVerificationController {
 	public FinanceVerificationOfficer updateStatus(@RequestBody LoanApplication loanapplication) {
 		return null;
 	}
+
 
 }
