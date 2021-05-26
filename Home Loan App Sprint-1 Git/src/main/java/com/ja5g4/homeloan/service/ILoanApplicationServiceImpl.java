@@ -3,6 +3,7 @@ package com.ja5g4.homeloan.service;
 import java.util.List;
 
 import java.util.Optional;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 	@Autowired
 	ILoanApplicationRepository repository;
 
+	@Transactional
 	@Override
 	public LoanApplication addLoanApplication(LoanApplication loanApplication) {
 		
@@ -28,6 +30,7 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 			return loanApplication;
 	}
 
+	@Transactional
 	@Override
 	public LoanApplication updateLoanApplication(LoanApplication loanApplication)
 			throws InvalidLoanApplicationException {
@@ -45,6 +48,7 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 		return optional.get();
 	}
 
+	@Transactional
 	@Override
 	public LoanApplication deleteLoanApplication(long loanApplicationId) throws InvalidLoanApplicationException {
 		
