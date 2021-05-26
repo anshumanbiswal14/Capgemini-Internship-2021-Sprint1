@@ -2,6 +2,8 @@ package com.ja5g4.homeloan.service;
 
 import java.time.LocalDate;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +20,7 @@ import com.ja5g4.homeloan.repository.ILoanAgreementRepository;
 import com.ja5g4.homeloan.repository.ILoanApplicationRepository;
 
 @Service
-public class CustomerServiceImpl implements ICustomerService  {
+public class ICustomerServiceImpl implements ICustomerService  {
 	
 	@Autowired
 	ICustomerRepository repository;

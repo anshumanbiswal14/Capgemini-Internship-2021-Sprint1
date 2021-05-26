@@ -13,19 +13,20 @@ import com.ja5g4.homeloan.repository.IFinanceVerificationRepository;
 
 
 @Service
-public class FinanceVerificationServiceImpl implements IFinanceVerificationService {
+public class IFinanceVerificationServiceImpl implements IFinanceVerificationService {
 
 	@Autowired
 	IFinanceVerificationRepository verificationRepository;
+	
 	@Override
 	public LoanApplication updateStatus(LoanApplication loanApplication) throws InvalidLoanApplicationException {
-		// TODO Auto-generated method stub
-		Optional<FinanceVerificationOfficer> optional=null;
+		
+		Optional<FinanceVerificationOfficer> optional = null;
 		try {
 			verificationRepository.save(loanApplication);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 			e.printStackTrace();
 			throw new InvalidLoanApplicationException("Loan application couldn't be Updated! ");
 

@@ -13,7 +13,7 @@ import com.ja5g4.homeloan.exception.InvalidLoanAgreementException;
 import com.ja5g4.homeloan.repository.ILoanAgreementRepository;
 
 @Service
-public class LoanAgreementImpl implements ILoanAgreementService {
+public class ILoanAgreementServiceImpl implements ILoanAgreementService {
     
 	@Autowired
 	ILoanAgreementRepository repository;

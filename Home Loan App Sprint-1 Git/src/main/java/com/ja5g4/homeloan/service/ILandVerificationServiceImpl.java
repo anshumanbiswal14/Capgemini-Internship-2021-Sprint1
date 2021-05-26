@@ -8,7 +8,7 @@ import com.ja5g4.homeloan.entities.LoanApplication;
 import com.ja5g4.homeloan.exception.InvalidLoanApplicationException;
 import com.ja5g4.homeloan.repository.ILandVerificationRepository;
 
-public class LandVerificationImpl implements ILandVerificationService{
+public class ILandVerificationServiceImpl implements ILandVerificationService{
 
 	@Autowired
 	ILandVerificationRepository landVerificationRepository;
