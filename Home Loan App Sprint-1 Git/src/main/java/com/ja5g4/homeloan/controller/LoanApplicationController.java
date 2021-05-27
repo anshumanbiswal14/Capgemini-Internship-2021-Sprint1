@@ -2,6 +2,7 @@ package com.ja5g4.homeloan.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +42,7 @@ public class LoanApplicationController {
 		return loanApplication;
 	}
 
-	@PostMapping("/update/{loanApplication}")
+	@PostMapping("/update")
 	public LoanApplication updateLoanApplication(@RequestBody LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		this.loanApplication_service.updateLoanApplication(loanApplication);
 		return loanApplication;

@@ -40,7 +40,7 @@ public LoanAgreement addLoanAgreement(@RequestBody LoanAgreement loanAgreement) 
 	return loanAgreement;
 }
 
-@PostMapping("/update/{loanAgreement}")
+@PostMapping("/update")
 public LoanAgreement updateLoanAgreement(@RequestBody LoanAgreement loanAgreement) throws InvalidLoanAgreementException {
 	this.loanAgreement_service.updateLoanAgreement(loanAgreement);
 	return loanAgreement;
