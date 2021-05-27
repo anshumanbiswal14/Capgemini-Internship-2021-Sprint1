@@ -1,5 +1,7 @@
 package com.ja5g4.homeloan.service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import java.util.Optional;
@@ -48,7 +50,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		EMI emi1  = new EMI();
 		emi1.setEmiAmount(emi);
 		// to find the due date
-		emi1.setDueDate(null);
+		emi1.setDueDate(LocalDate.now());
 		emi1.setInterestAmount(0.10);
 		emi1.setLoanAmount(loanAmount);
 		allemis.add(emi1);
@@ -56,7 +58,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		EMI emi2  = new EMI();
 		emi1.setEmiAmount(emi);
 		// to find the due date
-		emi1.setDueDate(null);
+		emi1.setDueDate(LocalDate.now().plusMonths(1));
 		emi1.setInterestAmount(0.10);
 		emi1.setLoanAmount(loanAmount);
 		allemis.add(emi2);
@@ -64,7 +66,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		EMI emi3  = new EMI();
 		emi1.setEmiAmount(emi);
 		// to find the due date
-		emi1.setDueDate(null);
+		emi1.setDueDate(LocalDate.now().plusMonths(2));
 		emi1.setInterestAmount(0.10);
 		emi1.setLoanAmount(loanAmount);
 		allemis.add(emi3);
@@ -72,7 +74,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		EMI emi4  = new EMI();
 		emi1.setEmiAmount(emi);
 		// to find the due date
-		emi1.setDueDate(null);
+		emi1.setDueDate(LocalDate.now().plusMonths(3));
 		emi1.setInterestAmount(0.10);
 		emi1.setLoanAmount(loanAmount);
 		allemis.add(emi4);
@@ -80,7 +82,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		EMI emi5  = new EMI();
 		emi1.setEmiAmount(emi);
 		// to find the due date
-		emi1.setDueDate(null);
+		emi1.setDueDate(LocalDate.now().plusMonths(4));
 		emi1.setInterestAmount(0.10);
 		emi1.setLoanAmount(loanAmount);
 		allemis.add(emi5);
@@ -88,7 +90,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		EMI emi6  = new EMI();
 		emi1.setEmiAmount(emi);
 		// to find the due date
-		emi1.setDueDate(null);
+		emi1.setDueDate(LocalDate.now().plusMonths(5));
 		emi1.setInterestAmount(0.10);
 		emi1.setLoanAmount(loanAmount);
 		allemis.add(emi6);
@@ -96,7 +98,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		EMI emi7  = new EMI();
 		emi1.setEmiAmount(emi);
 		// to find the due date
-		emi1.setDueDate(null);
+		emi1.setDueDate(LocalDate.now().plusMonths(6));
 		emi1.setInterestAmount(0.10);
 		emi1.setLoanAmount(loanAmount);
 		allemis.add(emi7);
@@ -104,7 +106,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		EMI emi8  = new EMI();
 		emi1.setEmiAmount(emi);
 		// to find the due date
-		emi1.setDueDate(null);
+		emi1.setDueDate(LocalDate.now().plusMonths(7));
 		emi1.setInterestAmount(0.10);
 		emi1.setLoanAmount(loanAmount);
 		allemis.add(emi8);
@@ -112,7 +114,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		EMI emi9  = new EMI();
 		emi1.setEmiAmount(emi);
 		// to find the due date
-		emi1.setDueDate(null);
+		emi1.setDueDate(LocalDate.now().plusMonths(8));
 		emi1.setInterestAmount(0.10);
 		emi1.setLoanAmount(loanAmount);
 		allemis.add(emi9);
@@ -120,7 +122,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		EMI emi10  = new EMI();
 		emi1.setEmiAmount(emi);
 		// to find the due date
-		emi1.setDueDate(null);
+		emi1.setDueDate(LocalDate.now().plusMonths(9));
 		emi1.setInterestAmount(0.10);
 		emi1.setLoanAmount(loanAmount);
 		allemis.add(emi10);
@@ -128,7 +130,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		EMI emi11  = new EMI();
 		emi1.setEmiAmount(emi);
 		// to find the due date
-		emi1.setDueDate(null);
+		emi1.setDueDate(LocalDate.now().plusMonths(10));
 		emi1.setInterestAmount(0.10);
 		emi1.setLoanAmount(loanAmount);
 		allemis.add(emi11);
@@ -136,7 +138,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		EMI emi12  = new EMI();
 		emi1.setEmiAmount(emi);
 		// to find the due date
-		emi1.setDueDate(null);
+		emi1.setDueDate(LocalDate.now().plusMonths(11));
 		emi1.setInterestAmount(0.10);
 		emi1.setLoanAmount(loanAmount);
 		allemis.add(emi12);
