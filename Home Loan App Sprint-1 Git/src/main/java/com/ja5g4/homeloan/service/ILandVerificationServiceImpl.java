@@ -19,7 +19,7 @@ public class ILandVerificationServiceImpl implements ILandVerificationService{
 	
 	@Override
 	@Transactional
-	public LoanApplication updateStatusofLand (LoanApplication loanApplication) throws InvalidLoanApplicationException {
+	public LoanApplication updateStatus(LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		Optional<LoanApplication> optional=null;
 		try {
 			

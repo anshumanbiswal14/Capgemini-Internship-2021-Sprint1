@@ -9,7 +9,7 @@ import com.ja5g4.homeloan.exception.InvalidLoanApplicationException;
 
 public interface ILandVerificationService {
 	
-		public LoanApplication updateStatusofLand(LoanApplication loanApplication) throws InvalidLoanApplicationException ;
+		public LoanApplication updateStatus(LoanApplication loanApplication) throws InvalidLoanApplicationException ;
 
 		}
 

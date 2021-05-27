@@ -11,10 +11,11 @@ import com.ja5g4.homeloan.entities.User;
 import com.ja5g4.homeloan.service.IUserService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/user")
 public class UserServiceController {
+	
 	public UserServiceController() {
-		System.out.println("------>User Service Running");
+		System.out.println("------>User Service Rest Working!");
 	}
 	
 	@Autowired
@@ -27,14 +28,14 @@ public class UserServiceController {
 		
 	}
 	
-	@PostMapping("/signIn")
+	@PostMapping("/signin")
 	public User signIn(@RequestBody User user) {
 		this.userService.signIn(user);
 		return user;
 		
 	}
 
-	@PostMapping("/signOut")
+	@PostMapping("/signout")
 	public User signOut(@RequestBody User user) {
 		this.userService.signOut(user);
 		return user;
