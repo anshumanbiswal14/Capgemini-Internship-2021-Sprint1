@@ -18,10 +18,15 @@ public class FinanceVerificationController {
 	@Autowired
 	private IFinanceVerificationService service;
 
+	
 	@PostMapping("/financestatus")
 	public LoanApplication updateStatus(@RequestBody LoanApplication loanapplication) throws InvalidLoanApplicationException {
-		this.service.updateStatus(loanapplication);
-		return loanapplication;
+		
+		return this.service.updateStatus(loanapplication);
+	}
+	public FinanceVerificationController() {
+		System.out.println("-----> Finance Rest Controller Working!");
+		
 	}
 
 

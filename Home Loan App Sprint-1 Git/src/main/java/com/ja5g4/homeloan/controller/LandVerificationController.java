@@ -15,11 +15,15 @@ import com.ja5g4.homeloan.service.ILandVerificationService;
 @RequestMapping("/api")
 public class LandVerificationController {
 	@Autowired
-	private ILandVerificationService service;
-	
+	private ILandVerificationService lservice;
+	public LandVerificationController() {
+		System.out.println("-----> Land Rest Controller Working!");
+		
+	}
 	@PostMapping("/landstatus")
 	public LoanApplication updateStatus(@RequestBody LoanApplication loanapplication) throws InvalidLoanApplicationException {
-		this.service.updateStatus(loanapplication);
-		return loanapplication;
+		
+		return this.lservice.updateStatusofLand(loanapplication);
 	}
+	
 }
