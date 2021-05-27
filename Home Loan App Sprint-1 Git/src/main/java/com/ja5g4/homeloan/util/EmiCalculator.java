@@ -8,7 +8,7 @@ public class EmiCalculator {
 	
 	
 	public double getEMIAmount() {
-		return 0;
+		return loanAmount+(loanAmount*rateOfInterest)/(tenure);
 	}
 
 	public EmiCalculator() {

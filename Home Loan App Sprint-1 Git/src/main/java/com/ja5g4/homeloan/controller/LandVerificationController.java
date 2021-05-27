@@ -2,14 +2,16 @@ package com.ja5g4.homeloan.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ja5g4.homeloan.entities.LandVerificationOfficer;
 import com.ja5g4.homeloan.entities.LoanApplication;
 import com.ja5g4.homeloan.exception.InvalidLoanApplicationException;
+import com.ja5g4.homeloan.exception.LandVerificationException;
 import com.ja5g4.homeloan.service.ILandVerificationService;
 
 @RestController
@@ -29,5 +31,21 @@ public class LandVerificationController {
 		
 		return this.lservice.updateStatus(loanapplication);
 	}
+	
+	@PostMapping("/addofficer")
+	public LandVerificationOfficer addOfficer(@RequestBody LandVerificationOfficer landVerificationOfficer ) throws LandVerificationException{
+		
+		return this.lservice.addOfficer(landVerificationOfficer);
+		
+	}
+	
+	@PutMapping("/updateofficer")
+	public LandVerificationOfficer updateOfficer(@RequestBody LandVerificationOfficer landVerificationOfficer ) throws LandVerificationException{
+		
+		return this.lservice.updateOfficer(landVerificationOfficer);
+		
+	}
+	
+	
 	
 }
