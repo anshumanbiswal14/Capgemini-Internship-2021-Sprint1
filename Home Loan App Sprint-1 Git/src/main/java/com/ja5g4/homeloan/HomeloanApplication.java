@@ -1,7 +1,6 @@
 package com.ja5g4.homeloan;
 
 import org.springframework.boot.SpringApplication;
-
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +18,7 @@ public class HomeloanApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HomeloanApplication.class, args);
-		System.out.println("-------> Working OK!");
+		System.out.println("-------> SWAGGER Working OK!");
 	}
 	
 	
@@ -32,9 +31,9 @@ public class HomeloanApplication {
 	
 	private ApiInfo apiInfo() {
 		
-		return new ApiInfoBuilder().title("Home Loan Application")
-				.description("Contains APIs for Home Loan Application")
-				.version("Home Loan App Version 1.0").build();
+		return new ApiInfoBuilder().title("Home Loan Application Documentation")
+				.description("Contains all the APIs for the Home Loan Application Version 1.0")
+				.version("Home Loan Application Version 1.0").build();
 	}
 
 }

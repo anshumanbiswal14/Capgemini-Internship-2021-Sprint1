@@ -1,7 +1,7 @@
 package com.ja5g4.homeloan.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +13,12 @@ import com.ja5g4.homeloan.entities.LandVerificationOfficer;
 import com.ja5g4.homeloan.entities.User;
 import com.ja5g4.homeloan.service.IUserService;
 
+import io.swagger.annotations.ApiModel;
+
+@Validated
 @RestController
 @RequestMapping("/user")
+@ApiModel(value = "User Service Rest Controller" , description = "Holds all APIs related to the User Service")
 public class UserServiceController {
 	
 	public UserServiceController() {

@@ -2,13 +2,29 @@ package com.ja5g4.homeloan.entities;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @DiscriminatorValue(value = "2")
+@ApiModel(value = "Admin Bean Class")
 public class Admin extends User {
 
-private String adminName;
-private String adminContact;
+	
+	@ApiModelProperty(name = "Admin Name", value = "It holds only alphabets and accepts minimum 3 Chars", required = true)
+	@NotEmpty(message = "Admin Name can't be empty!")
+	@Size(min = 3, max = 25, message = "Invalid Admin Name please enter a vaild Admin Name!")
+	@Pattern(regexp="^[A-Za-z]+",message = "INVALID PLEASE ENTER AGAIN")	
+	private String adminName;
+
+	@ApiModelProperty(name = "Phone Number", value = "It holds phone number only 10 digits allowed", required = true)
+	@NotEmpty(message = "Phone Number can't be empty!")
+	@Size(min = 10, max = 10, message = "Invalid Phone Number please enter a vaild phone number minimum of 10 digits")
+	private String adminContact;
 
 public Admin() {
 	super();

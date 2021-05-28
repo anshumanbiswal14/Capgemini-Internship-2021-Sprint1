@@ -2,35 +2,68 @@ package com.ja5g4.homeloan.entities;
 
 import java.time.LocalDate;
 
-
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-
 @Entity
-@ApiModel(value = "Customer Bean")
+@ApiModel(value = "Customer Bean Class")
 @DiscriminatorValue(value = "3")
 public class Customer extends User {
 
-@ApiModelProperty(name = "Customer Name", value = "holding customer name", required = true)	
-private String customerName;
-@ApiModelProperty(name = "Mobile Number", value = "holding customer phone number", required = true)	
-private String mobileNumber;
-@ApiModelProperty(name = "Customer Email Id", value = "holding customer email", required = true)	
-private String emailId;
-@ApiModelProperty(name = "Customer DOB", value = "holding customer DOB", required = true)	
-private LocalDate dateOfBirth;
-@ApiModelProperty(name = "Customer Gender", value = "holding customer gender", required = true)	
-private String gender;
-@ApiModelProperty(name = "Customer Nationality", value = "holding customer country of origin", required = true)	
-private String nationality;
-@ApiModelProperty(name = "Customer Aadhar Card number", value = "holding customer aadhar card number", required = true)	
-private String aadharNumber;
-@ApiModelProperty(name = "Customer PAN ", value = "holding customer PAN", required = true)	
-private String panNumber;
+	
+	@ApiModelProperty(name = "Customer Name", value = "It holds only alphabets and accepts minimum 3 Chars", required = true)
+	@NotEmpty(message = "Customer Name can't be empty!")
+	@Size(min = 3, max = 25, message = "Invalid Customer Name please enter a vaild Customer Name!")
+	@Pattern(regexp="^[A-Za-z]+",message = "INVALID PLEASE ENTER AGAIN")	
+	private String customerName;
+
+	@ApiModelProperty(name = "Mobile Number", value = "It holds customer's phone number", required = true)	
+	@NotEmpty(message = "Phone Number can't be empty!")
+	@Size(min = 10, max = 10, message = "Invalid Phone Number please enter a vaild phone number of minimum 10 digits")	
+	private String mobileNumber;
+
+
+	@ApiModelProperty(name = "Customer Email ID", value = "holding customer email ID", required = true)
+	@NotEmpty(message = "Email ID can't be empty!")
+	@Size(min = 2, max = 30, message = "Invalid Email ID please enter a vaild email ID")
+	@Pattern(regexp="^[\\\\w!#$%&’*+/=?`{|}~^-]+(?:\\\\.[\\\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,6}$",message = "INVALID Email ENTER AGAIN")
+	private String emailId;
+
+
+	@ApiModelProperty(name = "Customer DOB", value = "holding customer DOB", required = true)
+	@NotEmpty(message = "Date of Birth can't be empty!")
+	@Pattern(regexp="^\\d{4}-\\d{2}-\\d{2}$",message = "INVALID Date of Birth ENTER AGAIN")
+	private LocalDate dateOfBirth;
+
+
+	@ApiModelProperty(name = "Customer Gender", value = "holding customer gender", required = true)
+	@NotEmpty(message = "Gender can't be empty!")
+	@Size(min = 4, max = 6, message = "Please enter Male/Female/Other")
+	private String gender;
+	
+	
+	@ApiModelProperty(name = "Customer Nationality", value = "holding customer country of origin", required = true)	
+	@NotEmpty(message = "Nationality can't be empty!")
+	@Size(min = 2, max = 15, message = "Please enter proper nationality")
+	private String nationality;
+	
+	
+	@ApiModelProperty(name = "Customer Aadhar Card number", value = "holding customer Aadhar Card number", required = true)	
+	@NotEmpty(message = "Aadhar Card number can't be empty!")
+	@Size(min = 12, max = 12, message = "Please enter 12 digit AADHAR!")
+	private String aadharNumber;
+	
+	
+	@ApiModelProperty(name = "Customer PAN ", value = "holding customer PAN Card Number", required = true)	
+	@NotEmpty(message = "PAN card number can't be empty!")
+	@Size(min = 10, max = 10, message = "Please enter 10 digit PAN!")
+	private String panNumber;
 
 
 public Customer() {
