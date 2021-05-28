@@ -54,7 +54,7 @@ public class GlobalExceptionHandler {
 		
 	}
 	@ExceptionHandler(InvalidLoanAgreementException.class)
-	public ResponseEntity<String> handleInvalidLoanAggrementException(InvalidLoanAgreementException ex) {
+	public ResponseEntity<String> handleInvalidLoanAgrementException(InvalidLoanAgreementException ex) {
 		HttpHeaders header = new HttpHeaders();
 		header.add("Description", "Trying to get Loan Agreement");
 
