@@ -24,7 +24,7 @@ public class LoanApplication {
 	private long applicationId;
 	@Column
 	private LocalDate applicationDate;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "user_Info", referencedColumnName = "userId")
 	private Customer customer;
 	@Column

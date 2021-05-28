@@ -12,17 +12,17 @@ private String adminContact;
 
 public Admin() {
 	super();
-	// TODO Auto-generated constructor stub
+	
 }
 
 public Admin(int userId, String password, String role) {
 	super(userId, password, role);
-	// TODO Auto-generated constructor stub
+	
 }
 
 public Admin(int userId) {
 	super(userId);
-	// TODO Auto-generated constructor stub
+	
 }
 
 

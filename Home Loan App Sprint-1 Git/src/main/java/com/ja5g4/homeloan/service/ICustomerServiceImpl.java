@@ -1,7 +1,6 @@
 package com.ja5g4.homeloan.service;
 
 import java.time.LocalDate;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -45,22 +44,17 @@ public class ICustomerServiceImpl implements ICustomerService  {
 	public Customer updateCustomer(Customer customer) throws CustomerNotFoundException {
 		
 		Optional<Customer> optional = null;
-		try {
+		
 			optional = repository.findById(customer.getUserId());
 			if(optional.isPresent()) {
 				repository.save(customer);
+				return optional.get();
 			}
 			else {
 				throw new CustomerNotFoundException("Customer couldn't be Updated! ");
 			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			if(optional.get() == null) {
-			throw new CustomerNotFoundException("Customer couldn't be Updated! ");
-			}
-		}
-				return optional.get();
+		
+				
 	}
 	
 	@Transactional
@@ -68,21 +62,18 @@ public class ICustomerServiceImpl implements ICustomerService  {
 	public Customer deleteCustomer(int custid) throws CustomerNotFoundException {
 		
 		Optional<Customer> optional = null;
-		try {
+		
 			optional = repository.findById(custid);
-			if(optional.isPresent()) {
+			if(optional.isPresent()) 
+			{
 			repository.deleteById(custid);
+			return optional.get();
 			}
 			else {
 				throw new CustomerNotFoundException("Customer not found for delete operation!");
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			if(optional.get() == null) {
-			throw new CustomerNotFoundException("Customer not found for delete operation!");
-			}
-		}
-		return optional.get();
+		
+
 	}
 
 	@Override

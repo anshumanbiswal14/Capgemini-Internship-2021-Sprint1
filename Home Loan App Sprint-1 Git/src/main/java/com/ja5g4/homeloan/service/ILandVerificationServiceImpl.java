@@ -27,37 +27,25 @@ public class ILandVerificationServiceImpl implements ILandVerificationService{
 	@Transactional
 	public LoanApplication updateStatus(LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		Optional<LoanApplication> optional=null;
-		try {
+		
 			if(optional.isPresent()) {
 			loanapplicationrepository.save(loanApplication);
+			return loanApplication;
 			}
 			else {
 				throw new InvalidLoanApplicationException("Loan application couldn't be Updated! ");
 			}
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-			throw new InvalidLoanApplicationException("Loan application couldn't be Updated! ");
-
-		}
-		return loanApplication;
+		
+		
 	}
 
 	@Override
 	public LandVerificationOfficer updateOfficer(LandVerificationOfficer landVerificationOfficer)
 			throws LandVerificationException {
 		Optional<LandVerificationOfficer> optional=null;
-		try {
-			
+		
 			landVerificationRepository.save(landVerificationOfficer);
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-			throw new LandVerificationException ("Loan officer couldn't be Updated! ");
-
-		}
-		return landVerificationOfficer;
+			return landVerificationOfficer;
 		
 		
 	}

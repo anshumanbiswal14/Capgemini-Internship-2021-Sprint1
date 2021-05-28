@@ -1,7 +1,7 @@
 package com.ja5g4.homeloan.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +24,11 @@ public class LandVerificationController {
 	public LandVerificationController() {
 		System.out.println("-----> Land Rest Controller Working!");
 		
+	}
+	
+	@GetMapping("/home")
+	public String homeRequest() {
+		return "Welcome : Home Loan Application (Version 1.0)";
 	}
 	
 	@PutMapping("/landstatus")

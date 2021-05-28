@@ -1,14 +1,11 @@
 package com.ja5g4.homeloan.service;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
-
 import java.util.Optional;
 import java.util.Set;
 
 import javax.transaction.Transactional;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,103 +46,88 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		Set<EMI> allemis =  loanAgreement.getAllemis();
 		EMI emi1  = new EMI();
 		emi1.setEmiAmount(emi);
-		// to find the due date
 		emi1.setDueDate(LocalDate.now());
 		emi1.setInterestAmount(0.10);
 		emi1.setLoanAmount(loanAmount);
 		allemis.add(emi1);
 		
 		EMI emi2  = new EMI();
-		emi1.setEmiAmount(emi);
-		// to find the due date
-		emi1.setDueDate(LocalDate.now().plusMonths(1));
-		emi1.setInterestAmount(0.10);
-		emi1.setLoanAmount(loanAmount);
+		emi2.setEmiAmount(emi);
+		emi2.setDueDate(LocalDate.now().plusMonths(1));
+		emi2.setInterestAmount(0.10);
+		emi2.setLoanAmount(loanAmount);
 		allemis.add(emi2);
 		
 		EMI emi3  = new EMI();
-		emi1.setEmiAmount(emi);
-		// to find the due date
-		emi1.setDueDate(LocalDate.now().plusMonths(2));
-		emi1.setInterestAmount(0.10);
-		emi1.setLoanAmount(loanAmount);
+		emi3.setEmiAmount(emi);
+		emi3.setDueDate(LocalDate.now().plusMonths(2));
+		emi3.setInterestAmount(0.10);
+		emi3.setLoanAmount(loanAmount);
 		allemis.add(emi3);
 		
 		EMI emi4  = new EMI();
-		emi1.setEmiAmount(emi);
-		// to find the due date
-		emi1.setDueDate(LocalDate.now().plusMonths(3));
-		emi1.setInterestAmount(0.10);
-		emi1.setLoanAmount(loanAmount);
+		emi4.setEmiAmount(emi);
+		emi4.setDueDate(LocalDate.now().plusMonths(3));
+		emi4.setInterestAmount(0.10);
+		emi4.setLoanAmount(loanAmount);
 		allemis.add(emi4);
 		
 		EMI emi5  = new EMI();
-		emi1.setEmiAmount(emi);
-		// to find the due date
-		emi1.setDueDate(LocalDate.now().plusMonths(4));
-		emi1.setInterestAmount(0.10);
-		emi1.setLoanAmount(loanAmount);
+		emi5.setEmiAmount(emi);
+		emi5.setDueDate(LocalDate.now().plusMonths(4));
+		emi5.setInterestAmount(0.10);
+		emi5.setLoanAmount(loanAmount);
 		allemis.add(emi5);
 		
 		EMI emi6  = new EMI();
-		emi1.setEmiAmount(emi);
-		// to find the due date
-		emi1.setDueDate(LocalDate.now().plusMonths(5));
-		emi1.setInterestAmount(0.10);
-		emi1.setLoanAmount(loanAmount);
+		emi6.setEmiAmount(emi);
+		emi6.setDueDate(LocalDate.now().plusMonths(5));
+		emi6.setInterestAmount(0.10);
+		emi6.setLoanAmount(loanAmount);
 		allemis.add(emi6);
 		
 		EMI emi7  = new EMI();
-		emi1.setEmiAmount(emi);
-		// to find the due date
-		emi1.setDueDate(LocalDate.now().plusMonths(6));
-		emi1.setInterestAmount(0.10);
-		emi1.setLoanAmount(loanAmount);
+		emi7.setEmiAmount(emi);
+		emi7.setDueDate(LocalDate.now().plusMonths(6));
+		emi7.setInterestAmount(0.10);
+		emi7.setLoanAmount(loanAmount);
 		allemis.add(emi7);
 		
 		EMI emi8  = new EMI();
-		emi1.setEmiAmount(emi);
-		// to find the due date
-		emi1.setDueDate(LocalDate.now().plusMonths(7));
-		emi1.setInterestAmount(0.10);
-		emi1.setLoanAmount(loanAmount);
+		emi8.setEmiAmount(emi);
+		emi8.setDueDate(LocalDate.now().plusMonths(7));
+		emi8.setInterestAmount(0.10);
+		emi8.setLoanAmount(loanAmount);
 		allemis.add(emi8);
 		
 		EMI emi9  = new EMI();
-		emi1.setEmiAmount(emi);
-		// to find the due date
-		emi1.setDueDate(LocalDate.now().plusMonths(8));
-		emi1.setInterestAmount(0.10);
-		emi1.setLoanAmount(loanAmount);
+		emi9.setEmiAmount(emi);
+		emi9.setDueDate(LocalDate.now().plusMonths(8));
+		emi9.setInterestAmount(0.10);
+		emi9.setLoanAmount(loanAmount);
 		allemis.add(emi9);
 		
 		EMI emi10  = new EMI();
 		emi1.setEmiAmount(emi);
-		// to find the due date
-		emi1.setDueDate(LocalDate.now().plusMonths(9));
-		emi1.setInterestAmount(0.10);
-		emi1.setLoanAmount(loanAmount);
+		emi10.setDueDate(LocalDate.now().plusMonths(9));
+		emi10.setInterestAmount(0.10);
+		emi10.setLoanAmount(loanAmount);
 		allemis.add(emi10);
 		
 		EMI emi11  = new EMI();
 		emi1.setEmiAmount(emi);
-		// to find the due date
-		emi1.setDueDate(LocalDate.now().plusMonths(10));
-		emi1.setInterestAmount(0.10);
-		emi1.setLoanAmount(loanAmount);
+		emi11.setDueDate(LocalDate.now().plusMonths(10));
+		emi11.setInterestAmount(0.10);
+		emi11.setLoanAmount(loanAmount);
 		allemis.add(emi11);
 		
 		EMI emi12  = new EMI();
 		emi1.setEmiAmount(emi);
-		// to find the due date
-		emi1.setDueDate(LocalDate.now().plusMonths(11));
-		emi1.setInterestAmount(0.10);
-		emi1.setLoanAmount(loanAmount);
+		emi12.setDueDate(LocalDate.now().plusMonths(11));
+		emi12.setInterestAmount(0.10);
+		emi12.setLoanAmount(loanAmount);
 		allemis.add(emi12);
-			
-			
-			
-			
+		
 		repository.save(loanAgreement);
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -159,22 +141,21 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 	public LoanAgreement updateLoanAgreement(LoanAgreement loanAgreement) throws InvalidLoanAgreementException {
 		
 		Optional<LoanAgreement> optional = null;
-		try {
+		
 		optional = repository.findById(loanAgreement.getLoanAgreementId());
 		if(optional.isPresent()) {
 			
 		repository.save(loanAgreement);
+		return loanAgreement;
 		
 		}
 		else {
+			
 			throw new InvalidLoanAgreementException("Loan agreement couldn't be Updated! ");
 		}
 		
-		}catch (Exception e) {
-			e.printStackTrace();
-			throw new InvalidLoanAgreementException("Loan agreement couldn't be Updated! ");
-		}
-		return loanAgreement;
+		
+		
 	}
 
 	
@@ -183,22 +164,18 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 	public LoanAgreement deleteLoanAgreement(long loanAgreementId) throws InvalidLoanAgreementException {
 		
 		Optional<LoanAgreement> optional = null;
-		try {
+		
 			optional = repository.findById(loanAgreementId);
 			if(optional.isPresent()) {
 			repository.deleteById(loanAgreementId);
+			return optional.get();
 			}
 			else {
 				throw new InvalidLoanAgreementException("Loan agreement not found for delete operation!");
 			}
-		}catch (Exception e) {
-			e.printStackTrace();
-			if(optional.get() == null) {
-				throw new InvalidLoanAgreementException("Loan agreement not found for delete operation!");
-				}
+		
 		}
-		return optional.get();
-	}
+		
 
 	@Override
 	public List<LoanAgreement> retrieveAllLoanAgreement() {

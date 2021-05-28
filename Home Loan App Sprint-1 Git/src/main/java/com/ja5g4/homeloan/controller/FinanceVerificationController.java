@@ -1,7 +1,7 @@
 package com.ja5g4.homeloan.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +22,12 @@ public class FinanceVerificationController {
 		System.out.println("-----> Finance Rest Controller Working!");
 		
 	}
+	
+	@GetMapping("/home")
+	public String homeRequest() {
+		return "Welcome : Home Loan Application (Version 1.0)";
+	}
+	
 
 	@PutMapping("/financestatus")
 	public LoanApplication updateStatus(@RequestBody LoanApplication loanapplication) throws InvalidLoanApplicationException {

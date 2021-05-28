@@ -1,7 +1,6 @@
 package com.ja5g4.homeloan;
 
 import org.springframework.boot.SpringApplication;
-
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication

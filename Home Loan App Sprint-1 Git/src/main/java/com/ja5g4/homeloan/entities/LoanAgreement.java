@@ -1,5 +1,7 @@
 package com.ja5g4.homeloan.entities;
 
+import java.util.HashSet;
+
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -9,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
@@ -24,7 +25,7 @@ public class LoanAgreement {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "LOAN_EMI", joinColumns = @JoinColumn(name = "loanAgreementId" ),
 	inverseJoinColumns = @JoinColumn(name = "EMIId"))
-	private Set<EMI> allemis;
+	private Set<EMI> allemis = new HashSet<>();
 	
 	public LoanAgreement() {
 		super();
