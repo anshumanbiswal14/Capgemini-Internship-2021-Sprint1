@@ -2,21 +2,34 @@ package com.ja5g4.homeloan.entities;
 
 import java.time.LocalDate;
 
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 
 @Entity
+@ApiModel(value = "Customer Bean")
 @DiscriminatorValue(value = "3")
 public class Customer extends User {
-	
+
+@ApiModelProperty(name = "Customer Name", value = "holding customer name", required = true)	
 private String customerName;
+@ApiModelProperty(name = "Mobile Number", value = "holding customer phone number", required = true)	
 private String mobileNumber;
+@ApiModelProperty(name = "Customer Email Id", value = "holding customer email", required = true)	
 private String emailId;
+@ApiModelProperty(name = "Customer DOB", value = "holding customer DOB", required = true)	
 private LocalDate dateOfBirth;
+@ApiModelProperty(name = "Customer Gender", value = "holding customer gender", required = true)	
 private String gender;
+@ApiModelProperty(name = "Customer Nationality", value = "holding customer country of origin", required = true)	
 private String nationality;
+@ApiModelProperty(name = "Customer Aadhar Card number", value = "holding customer aadhar card number", required = true)	
 private String aadharNumber;
+@ApiModelProperty(name = "Customer PAN ", value = "holding customer PAN", required = true)	
 private String panNumber;
 
 
