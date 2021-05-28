@@ -65,9 +65,24 @@ public class CustomerServiceController {
 		
 	}
 	@GetMapping("/viewbydate/{date}")
-	public List<Customer> viewCustomerList(@PathVariable("date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateOfApplication){
+	public List<Customer> viewCustomerList(@PathVariable("date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate dateOfApplication){
 		return this.customerService.viewCustomerList(dateOfApplication);
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

@@ -37,20 +37,20 @@ public class LandVerificationController {
 		return this.lservice.updateStatus(loanapplication);
 	}
 	
-	@PostMapping("/addofficer")
-	public LandVerificationOfficer addOfficer(@RequestBody LandVerificationOfficer landVerificationOfficer ) throws LandVerificationException{
-		
-		return this.lservice.addOfficer(landVerificationOfficer);
-		
-	}
-	
-	@PutMapping("/updateofficer")
-	public LandVerificationOfficer updateOfficer(@RequestBody LandVerificationOfficer landVerificationOfficer ) throws LandVerificationException{
-		
-		return this.lservice.updateOfficer(landVerificationOfficer);
-		
-	}
-	
-	
+//	@PostMapping("/addofficer")
+//	public LandVerificationOfficer addOfficer(@RequestBody LandVerificationOfficer landVerificationOfficer ) throws LandVerificationException{
+//		
+//		return this.lservice.addOfficer(landVerificationOfficer);
+//		
+//	}
+//	
+//	@PutMapping("/updateofficer")
+//	public LandVerificationOfficer updateOfficer(@RequestBody LandVerificationOfficer landVerificationOfficer ) throws LandVerificationException{
+//		
+//		return this.lservice.updateOfficer(landVerificationOfficer);
+//		
+//	}
+//	
+//	
 	
 }

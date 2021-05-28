@@ -119,7 +119,7 @@ public class ICustomerServiceImpl implements ICustomerService  {
 				Long agreementId = la.getLoanApplicationId();
 				
 				Optional<LoanApplication> optional = applicationRepository.findById(agreementId);
-				if(optional.get() != null){
+				if(optional.isPresent()){
 					if(optional.get().getApplicationDate().equals(dateOfApplication)){
 						
 						customerList.add(optional.get().getCustomer());

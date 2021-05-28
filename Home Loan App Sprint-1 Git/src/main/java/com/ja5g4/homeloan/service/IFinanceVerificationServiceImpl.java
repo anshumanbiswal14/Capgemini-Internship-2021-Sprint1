@@ -10,6 +10,7 @@ import com.ja5g4.homeloan.entities.FinanceVerificationOfficer;
 import com.ja5g4.homeloan.entities.LoanApplication;
 import com.ja5g4.homeloan.exception.InvalidLoanApplicationException;
 import com.ja5g4.homeloan.repository.IFinanceVerificationRepository;
+import com.ja5g4.homeloan.repository.ILoanApplicationRepository;
 
 
 @Service
@@ -17,15 +18,17 @@ public class IFinanceVerificationServiceImpl implements IFinanceVerificationServ
 
 	@Autowired
 	IFinanceVerificationRepository verificationRepository;
+	@Autowired
+	ILoanApplicationRepository applicationRepository;
 	
 	@Override
 	@Transactional
 	public LoanApplication updateStatus(LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		
-		Optional<FinanceVerificationOfficer> optional = null;
-		
+		Optional<LoanApplication> optional = null;
+		optional=applicationRepository.findById(loanApplication.getApplicationId());
 			if(optional.isPresent()) {
-			verificationRepository.save(loanApplication);
+			applicationRepository.save(loanApplication);
 			return loanApplication;
 			}
 			else {

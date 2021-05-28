@@ -41,11 +41,11 @@ public LoanAgreement addLoanAgreement(@RequestBody LoanAgreement loanAgreement) 
 	return loanAgreement;
 }
 
-@PutMapping("/update")
-public LoanAgreement updateLoanAgreement(@RequestBody LoanAgreement loanAgreement) throws InvalidLoanAgreementException {
-	this.loanAgreement_service.updateLoanAgreement(loanAgreement);
-	return loanAgreement;
-}
+//@PutMapping("/update")
+//public LoanAgreement updateLoanAgreement(@RequestBody LoanAgreement loanAgreement) throws InvalidLoanAgreementException {
+//	this.loanAgreement_service.updateLoanAgreement(loanAgreement);
+//	return loanAgreement;
+//}
 
 @DeleteMapping("/delete/{loanid}")
 public LoanAgreement deleteLoanAgreement(@PathVariable("loanid") long loanAgreementId) throws InvalidLoanAgreementException {

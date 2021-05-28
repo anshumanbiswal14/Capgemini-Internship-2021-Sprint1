@@ -20,16 +20,21 @@ public class ILandVerificationServiceImpl implements ILandVerificationService{
 	@Autowired
 	ILandVerificationRepository landVerificationRepository;
 	
+//	@Autowired
+//	ILoanApplicationRepository loanapplicationrepository;
 	@Autowired
-	ILoanApplicationRepository loanapplicationrepository;
+	ILoanApplicationRepository applicationRepository;
+	
 	
 	@Override
 	@Transactional
 	public LoanApplication updateStatus(LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		Optional<LoanApplication> optional=null;
+		optional=applicationRepository.findById(loanApplication.getApplicationId());
 		
 			if(optional.isPresent()) {
-			loanapplicationrepository.save(loanApplication);
+			applicationRepository.save(loanApplication);
+			
 			return loanApplication;
 			}
 			else {
@@ -37,29 +42,29 @@ public class ILandVerificationServiceImpl implements ILandVerificationService{
 			}
 		
 		
-	}
-
-	@Override
-	public LandVerificationOfficer updateOfficer(LandVerificationOfficer landVerificationOfficer)
-			throws LandVerificationException {
-		Optional<LandVerificationOfficer> optional=null;
-		
-			landVerificationRepository.save(landVerificationOfficer);
-			return landVerificationOfficer;
-		
-		
-	}
-
-	@Override
-	public LandVerificationOfficer addOfficer(LandVerificationOfficer landVerificationOfficer)
-			throws LandVerificationException {
-		
-		try {
-			landVerificationRepository.save(landVerificationOfficer);
-		} catch (Exception e) {
-			
-		}
-				return landVerificationOfficer;
-	}
-
-}
+	}}
+//
+//	@Override
+//	public LandVerificationOfficer updateOfficer(LandVerificationOfficer landVerificationOfficer)
+//			throws LandVerificationException {
+//		Optional<LandVerificationOfficer> optional=null;
+//		
+//			landVerificationRepository.save(landVerificationOfficer);
+//			return landVerificationOfficer;
+//		
+//		
+//	}
+//
+//	@Override
+//	public LandVerificationOfficer addOfficer(LandVerificationOfficer landVerificationOfficer)
+//			throws LandVerificationException {
+//		
+//		try {
+//			landVerificationRepository.save(landVerificationOfficer);
+//		} catch (Exception e) {
+//			
+//		}
+//				return landVerificationOfficer;
+//	}
+//
+//}

@@ -57,7 +57,7 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 		Optional<LoanApplication> optional = null;
 		
 			optional = repository.findById(loanApplicationId);
-			if(optional.get() == null) {
+			if(optional.isPresent()) {
 			repository.deleteById(loanApplicationId);
 			return optional.get();
 			}

@@ -14,9 +14,9 @@ public interface ILandVerificationService {
 	
 		public LoanApplication updateStatus(LoanApplication loanApplication) throws InvalidLoanApplicationException ;
 		
-		public LandVerificationOfficer updateOfficer(LandVerificationOfficer landVerificationOfficer ) throws LandVerificationException;
-		
-		public LandVerificationOfficer addOfficer(LandVerificationOfficer landVerificationOfficer) throws LandVerificationException;
+//		public LandVerificationOfficer updateOfficer(LandVerificationOfficer landVerificationOfficer ) throws LandVerificationException;
+//		
+//		public LandVerificationOfficer addOfficer(LandVerificationOfficer landVerificationOfficer) throws LandVerificationException;
 		}
 
 
