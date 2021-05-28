@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ja5g4.homeloan.entities.Admin;
+import com.ja5g4.homeloan.entities.FinanceVerificationOfficer;
+import com.ja5g4.homeloan.entities.LandVerificationOfficer;
 import com.ja5g4.homeloan.entities.User;
 import com.ja5g4.homeloan.service.IUserService;
 
@@ -21,10 +24,24 @@ public class UserServiceController {
 	@Autowired
 	IUserService userService;
 	
-	@PostMapping("/adduser")
-	public User addNewUser(@RequestBody User user) {
-		this.userService.addNewUser(user);
-		return user;
+	@PostMapping("/adduserasadmin")
+	public Admin addNewUser(@RequestBody Admin admin) {
+		this.userService.addNewUser(admin);
+		return admin;
+		
+	}
+	
+	@PostMapping("/adduseraslandofficer")
+	public LandVerificationOfficer addNewUser(@RequestBody LandVerificationOfficer landOfficerVerificationOfficer) {
+		this.userService.addNewUser(landOfficerVerificationOfficer);
+		return landOfficerVerificationOfficer;
+		
+	}
+	
+	@PostMapping("/adduserasfinanceofficer")
+	public FinanceVerificationOfficer addNewUser(@RequestBody FinanceVerificationOfficer financeVerificationOfficer) {
+		this.userService.addNewUser(financeVerificationOfficer);
+		return financeVerificationOfficer;
 		
 	}
 	
