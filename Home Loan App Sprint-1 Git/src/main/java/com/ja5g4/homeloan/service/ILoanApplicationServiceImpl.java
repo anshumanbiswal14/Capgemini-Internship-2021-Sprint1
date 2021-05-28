@@ -38,7 +38,12 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 		Optional<LoanApplication> optional = null;
 		try {
 	    optional = repository.findById(loanApplication.getApplicationId());
+	    if(optional.isPresent()) {
 		repository.save(loanApplication);
+	    }
+	    else {
+	    	throw new InvalidLoanApplicationException("Loan application couldn't be Updated! ");
+	    }
 		}catch (Exception e) {
 			e.printStackTrace();
 			if(optional.get() == null) {
@@ -55,7 +60,12 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 		Optional<LoanApplication> optional = null;
 		try {
 			optional = repository.findById(loanApplicationId);
+			if(optional.get() == null) {
 			repository.deleteById(loanApplicationId);
+			}
+			else {
+				throw new InvalidLoanApplicationException("Loan application ID not found for delete operation!");
+			}
 		}catch (Exception e) {
 			e.printStackTrace();
 			if(optional.get() == null) {
@@ -83,6 +93,12 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 		Optional<LoanApplication> optional = null;
 		try {
 			optional = repository.findById(loanApplicationId);
+			if(optional.get() == null) {
+				repository.findById(loanApplicationId);
+			}
+			else {
+				throw new InvalidLoanApplicationException ("Loan application ID not found in records!");
+			}
 		
 		}catch (Exception e) {
 			e.printStackTrace();

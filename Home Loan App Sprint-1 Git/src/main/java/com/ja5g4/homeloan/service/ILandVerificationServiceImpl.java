@@ -28,9 +28,12 @@ public class ILandVerificationServiceImpl implements ILandVerificationService{
 	public LoanApplication updateStatus(LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		Optional<LoanApplication> optional=null;
 		try {
-			
+			if(optional.isPresent()) {
 			loanapplicationrepository.save(loanApplication);
-			
+			}
+			else {
+				throw new InvalidLoanApplicationException("Loan application couldn't be Updated! ");
+			}
 		} catch (Exception e) {
 			
 			e.printStackTrace();

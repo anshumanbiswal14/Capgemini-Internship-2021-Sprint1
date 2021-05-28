@@ -161,7 +161,15 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		Optional<LoanAgreement> optional = null;
 		try {
 		optional = repository.findById(loanAgreement.getLoanAgreementId());
+		if(optional.isPresent()) {
+			
 		repository.save(loanAgreement);
+		
+		}
+		else {
+			throw new InvalidLoanAgreementException("Loan agreement couldn't be Updated! ");
+		}
+		
 		}catch (Exception e) {
 			e.printStackTrace();
 			throw new InvalidLoanAgreementException("Loan agreement couldn't be Updated! ");
@@ -177,7 +185,12 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		Optional<LoanAgreement> optional = null;
 		try {
 			optional = repository.findById(loanAgreementId);
+			if(optional.isPresent()) {
 			repository.deleteById(loanAgreementId);
+			}
+			else {
+				throw new InvalidLoanAgreementException("Loan agreement not found for delete operation!");
+			}
 		}catch (Exception e) {
 			e.printStackTrace();
 			if(optional.get() == null) {
@@ -205,6 +218,12 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		Optional<LoanAgreement> optional = null;
 		try {
 			optional = repository.findById(loanAgreementId);
+			if(optional.isPresent()) {
+				repository.findById(loanAgreementId);
+			}
+			else {
+				throw new InvalidLoanAgreementException("Loan agreement ID not found in records!");
+			}
 			
 		}catch (Exception e) {
 			e.printStackTrace();

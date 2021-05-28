@@ -47,7 +47,13 @@ public class ICustomerServiceImpl implements ICustomerService  {
 		Optional<Customer> optional = null;
 		try {
 			optional = repository.findById(customer.getUserId());
-			repository.save(customer);
+			if(optional.isPresent()) {
+				repository.save(customer);
+			}
+			else {
+				throw new CustomerNotFoundException("Customer couldn't be Updated! ");
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			if(optional.get() == null) {
@@ -64,7 +70,12 @@ public class ICustomerServiceImpl implements ICustomerService  {
 		Optional<Customer> optional = null;
 		try {
 			optional = repository.findById(custid);
+			if(optional.isPresent()) {
 			repository.deleteById(custid);
+			}
+			else {
+				throw new CustomerNotFoundException("Customer not found for delete operation!");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			if(optional.get() == null) {
@@ -80,6 +91,12 @@ public class ICustomerServiceImpl implements ICustomerService  {
 		Optional<Customer> optional = null;
 		try {
 			optional = repository.findById(custid);
+			if(optional.isPresent()) {
+				repository.findById(custid);
+			}
+			else {
+				throw new CustomerNotFoundException("Customer not found with the matching ID!");
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();

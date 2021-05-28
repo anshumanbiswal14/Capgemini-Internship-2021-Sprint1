@@ -26,8 +26,12 @@ public class IFinanceVerificationServiceImpl implements IFinanceVerificationServ
 		
 		Optional<FinanceVerificationOfficer> optional = null;
 		try {
+			if(optional.isPresent()) {
 			verificationRepository.save(loanApplication);
-			
+			}
+			else {
+				throw new InvalidLoanApplicationException("Loan application couldn't be Updated! ");
+			}
 		} catch (Exception e) {
 			
 			e.printStackTrace();
