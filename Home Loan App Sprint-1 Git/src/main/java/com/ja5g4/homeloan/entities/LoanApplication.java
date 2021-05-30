@@ -15,30 +15,41 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 
 public class LoanApplication {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@ApiModelProperty(name = "Loan application ID", value = "It holds the loan application ID", required = true)
 	private long applicationId;
 	@Column
+	@ApiModelProperty(name = "Loan application date", value = "It holds the loan application date", required = true)
 	private LocalDate applicationDate;
 	@OneToOne
 	@JoinColumn(name = "user_Info", referencedColumnName = "userId")
+	@ApiModelProperty(name = "Customer", value = "It holds the customer information", required = true)
 	private Customer customer;
 	@Column
+	@ApiModelProperty(name = "Loan applied amount", value = "It holds the loan applied amount", required = true)
 	private double loanAppliedAmount;
 	@Column
+	@ApiModelProperty(name = "Loan approved amount", value = "It holds the loan approved amount", required = true)
 	private double loanApprovedAmount;
 	@Column
+	@ApiModelProperty(name = "Land verification approval status", value = "It holds the land verification approval status", required = true)
 	private boolean landVerificationApproval;
 	@Column
+	@ApiModelProperty(name = "Finance verification approval status", value = "It holds the finance verification approval status", required = true)
 	private boolean financeVerificationApproval;
 	@Column
+	@ApiModelProperty(name = "Admin approval status", value = "It holds the admin approval status", required = true)
 	private boolean adminApproval;
 	@Column
 	@Enumerated(EnumType.STRING)
+	@ApiModelProperty(name = "Status", value = "It holds the status", required = true)
 	private Status status;
 	
 	public LoanApplication() {

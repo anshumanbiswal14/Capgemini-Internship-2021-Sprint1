@@ -14,17 +14,24 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
+@ApiModel(value = "Loan Agreement Bean Class")
 public class LoanAgreement {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@ApiModelProperty(name = "Loan Agreement ID", value = "It holds the loan agreement ID", required = true)
 	private long loanAgreementId;
 	@Column
+	@ApiModelProperty(name = "Loan Application ID", value = "It holds the loan application ID", required = true)
 	private long loanApplicationId;
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "LOAN_EMI", joinColumns = @JoinColumn(name = "loanAgreementId" ),
 	inverseJoinColumns = @JoinColumn(name = "EMIId"))
+	@ApiModelProperty(name = "Set of all EMIs", value = "It holds the set of all EMIs", required = true)
 	private Set<EMI> allemis = new HashSet<>();
 	
 	public LoanAgreement() {
