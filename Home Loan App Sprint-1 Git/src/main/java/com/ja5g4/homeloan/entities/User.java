@@ -29,6 +29,7 @@ public class User {
 @Id	
 @GeneratedValue(strategy = GenerationType.AUTO)
 private int userId;
+
 @ApiModelProperty(name = "Password", value = "It holds only alphabets and accepts maximun 6 Chars", required = true)
 @NotEmpty(message = "Password can't be empty!")
 @Pattern(regexp=".{6}",message = "INVALID PLEASE ENTER AGAIN")	
