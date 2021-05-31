@@ -11,9 +11,16 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 @Table(name = "loan_user")
 @Entity
+@ApiModel(value = "User Bean Class")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "role_Type", discriminatorType = DiscriminatorType.INTEGER)
 @DiscriminatorValue(value = "1")
@@ -22,9 +29,14 @@ public class User {
 @Id	
 @GeneratedValue(strategy = GenerationType.AUTO)
 private int userId;
-@Column
+@ApiModelProperty(name = "Password", value = "It holds only alphabets and accepts maximun 6 Chars", required = true)
+@NotEmpty(message = "Password can't be empty!")
+@Pattern(regexp=".{6}",message = "INVALID PLEASE ENTER AGAIN")	
 private String password;
-@Column
+@ApiModelProperty(name = "User Role", value = "It holds only alphabets and accepts either User or Admin or FinanceOfficer or LanOfficer", required = true)
+@NotEmpty(message = "Role Type can't be empty!")
+@Size(min = 1, max = 1, message = "Invalid Role please enter a vaild Role!")
+@Pattern(regexp=("^(user|admin|financeofficer|landofficer)$"), message = "INVALID PLEASE ENTER AGAIN")		
 private String role;
 
 public User() {

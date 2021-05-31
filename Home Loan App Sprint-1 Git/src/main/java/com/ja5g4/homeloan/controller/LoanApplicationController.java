@@ -2,6 +2,8 @@ package com.ja5g4.homeloan.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -43,14 +45,14 @@ public class LoanApplicationController {
 	
 	@ApiOperation(value = "POST mapping to add new loan applications to the LOAN_APPLICATION table in the Database", response = LoanApplication.class)
 	@PostMapping("/add")
-	public LoanApplication addLoanApplication(@RequestBody LoanApplication loanApplication) {
+	public LoanApplication addLoanApplication(@RequestBody @Valid LoanApplication loanApplication) {
 		this.loanApplication_service.addLoanApplication(loanApplication);
 		return loanApplication;
 	}
 	
 	@ApiOperation(value = "PUT mapping to update the loan application in the LOAN_APPLICATION table in the Database", response = LoanApplication.class)
 	@PutMapping("/update")
-	public LoanApplication updateLoanApplication(@RequestBody LoanApplication loanApplication) throws InvalidLoanApplicationException {
+	public LoanApplication updateLoanApplication(@RequestBody @Valid LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		this.loanApplication_service.updateLoanApplication(loanApplication);
 		return loanApplication;
 	}
@@ -64,7 +66,7 @@ public class LoanApplicationController {
 	
 	@ApiOperation(value = "GET mapping to view all the loan applications in the database ", response = List.class)
 	@GetMapping("/viewallloan")
-	public List<LoanApplication> retrieveAllLoanApplication(@RequestBody LoanApplication loanApplication){
+	public List<LoanApplication> retrieveAllLoanApplication(@RequestBody @Valid LoanApplication loanApplication){
 		return this.loanApplication_service.retrieveAllLoanApplication();
 		
 
