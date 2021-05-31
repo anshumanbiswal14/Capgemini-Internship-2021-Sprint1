@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ja5g4.homeloan.entities.Admin;
-import com.ja5g4.homeloan.entities.Customer;
 import com.ja5g4.homeloan.entities.FinanceVerificationOfficer;
 import com.ja5g4.homeloan.entities.LandVerificationOfficer;
 import com.ja5g4.homeloan.entities.User;

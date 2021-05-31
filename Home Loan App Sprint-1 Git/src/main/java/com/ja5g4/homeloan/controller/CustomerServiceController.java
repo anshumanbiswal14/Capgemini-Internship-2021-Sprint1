@@ -1,9 +1,7 @@
 package com.ja5g4.homeloan.controller;
 
 import java.time.LocalDate;
-
 import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
