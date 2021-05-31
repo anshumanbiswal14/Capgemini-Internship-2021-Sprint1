@@ -32,12 +32,15 @@ public class User {
 private int userId;
 
 @ApiModelProperty(name = "Password", value = "It holds only alphabets and accepts maximun 6 Chars", required = true)
-@NotEmpty(message = "Password can't be empty!")	
+@NotEmpty(message = "Password can't be empty!")
+@Size(min = 8, max = 20, message = "Password has to be of minimum 8 chars!")
 private String password;
+
 @ApiModelProperty(name = "User Role", value = "It holds only alphabets and accepts either User or Admin or FinanceOfficer or LandOfficer or Customer", required = true)
 @NotEmpty(message = "Role Type can't be empty!")
 @Size(min = 2, max = 14, message = "Invalid Role please enter a vaild Role!")
 @Pattern(regexp=("^(user|admin|financeofficer|landofficer|customer)$"), message = "INVALID Role PLEASE ENTER AGAIN")		
+@Pattern(regexp = "^[a-zA-Z]*$",message = "Accepts only alphabets! re-enter the role")
 private String role;
 
 public User() {

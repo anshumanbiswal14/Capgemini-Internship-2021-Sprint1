@@ -24,6 +24,7 @@ public class Customer extends User {
 	@ApiModelProperty(name = "Customer Name", value = "It holds only alphabets and accepts minimum 3 Chars", required = true)
 	@NotEmpty(message = "Customer Name can't be empty!")
 	@Size(min = 3, max = 25, message = "Invalid Customer Name please enter a vaild Customer Name!")	
+	@Pattern(regexp = "^[a-zA-Z]*$",message = "Accepts only alphabets! re-enter the name")
 	private String customerName;
 
 	@ApiModelProperty(name = "Mobile Number", value = "It holds customer's phone number", required = true)	
@@ -48,13 +49,15 @@ public class Customer extends User {
 
 	@ApiModelProperty(name = "Customer Gender", value = "holding customer gender", required = true)
 	@NotEmpty(message = "Gender can't be empty!")
-	@Size(min = 4, max = 6, message = "Please enter Male/Female/Other")
+	@Size(min = 4, max = 6, message = "Please enter Male/Female/Others")
+	@Pattern(regexp = "^[a-zA-Z]*$",message = "Accepts only alphabets! re-enter the gender")
 	private String gender;
 	
 	
 	@ApiModelProperty(name = "Customer Nationality", value = "holding customer country of origin", required = true)	
 	@NotEmpty(message = "Nationality can't be empty!")
 	@Size(min = 2, max = 15, message = "Please enter proper nationality")
+	@Pattern(regexp = "^[a-zA-Z]*$",message = "Accepts only alphabets! re-enter the nationality")
 	private String nationality;
 	
 	
