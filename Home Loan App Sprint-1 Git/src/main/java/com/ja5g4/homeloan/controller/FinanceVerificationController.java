@@ -26,20 +26,27 @@ public class FinanceVerificationController {
 	@Autowired
 	private IFinanceVerificationService service;
 	
+	//Method to check the working of rest controller in the console
 	public FinanceVerificationController() {
 		System.out.println("-----> Finance Rest Controller Working!");
 		
 	}
 	
+	//Method to check the connection with the webservice
 	@GetMapping("/home")
 	public String homeRequest() {
-		return "Welcome : Home Loan Application (Version 1.0)";
+		return "Welcome : Home Loan Application (Version 1.0)"; //returns String value
 	}
+
+	
 	@ApiOperation(value="PUT mapping for the Finance Verification to update the status of application",response=FinanceVerificationController.class)
 	@PutMapping("/financestatus")
+	//Method to update the status of application and loan amount if approved, passes the parameters of application class
 	public LoanApplication updateStatus(@RequestBody @Valid LoanApplication loanapplication) throws InvalidLoanApplicationException {
 		
-		return this.service.updateStatus(loanapplication);
+		return this.service.updateStatus(loanapplication);  //returns the updated loan application
 	}
 
 }
+
+//By Gaurav Shrivastava

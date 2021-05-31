@@ -28,6 +28,7 @@ public class ILandVerificationServiceImpl implements ILandVerificationService{
 	
 	@Override
 	@Transactional
+	//method to check loan application is present in the DB, update if application is present else invoke Exception class
 	public LoanApplication updateStatus(LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		Optional<LoanApplication> optional=null;
 		optional=applicationRepository.findById(loanApplication.getApplicationId());
@@ -35,15 +36,18 @@ public class ILandVerificationServiceImpl implements ILandVerificationService{
 			if(optional.isPresent()) {
 			applicationRepository.save(loanApplication);
 			
-			return loanApplication;
+			return loanApplication;		//returns updated loan application
 			}
 			else {
-				throw new InvalidLoanApplicationException("Loan application couldn't be Updated! ");
+				throw new InvalidLoanApplicationException("Loan application couldn't be Updated! ");	//returns the stated exception message
 			}
 		
 		
 	}}
-//
+//By Gaurav Shrivastava
+
+
+// For Future Reference
 //	@Override
 //	public LandVerificationOfficer updateOfficer(LandVerificationOfficer landVerificationOfficer)
 //			throws LandVerificationException {

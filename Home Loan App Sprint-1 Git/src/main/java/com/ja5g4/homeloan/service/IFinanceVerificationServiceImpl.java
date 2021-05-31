@@ -23,6 +23,7 @@ public class IFinanceVerificationServiceImpl implements IFinanceVerificationServ
 	
 	@Override
 	@Transactional
+	//method to check loan application is present in the DB, update if application is present else invoke Exception class
 	public LoanApplication updateStatus(LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		
 		Optional<LoanApplication> optional = null;
@@ -32,8 +33,9 @@ public class IFinanceVerificationServiceImpl implements IFinanceVerificationServ
 			return loanApplication;
 			}
 			else {
-				throw new InvalidLoanApplicationException("Loan application couldn't be Updated! ");
+				throw new InvalidLoanApplicationException("Loan application couldn't be Updated! ");//returns updated loan application
 			}
 	}
 
 }
+//By Gaurav Shrivastava

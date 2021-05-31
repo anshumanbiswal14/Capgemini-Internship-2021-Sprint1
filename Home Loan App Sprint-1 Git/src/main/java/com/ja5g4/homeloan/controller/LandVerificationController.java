@@ -25,20 +25,25 @@ public class LandVerificationController {
 	@Autowired
 	private ILandVerificationService lservice;
 	
+	//Method to check the working of land rest controller in the console
 	public LandVerificationController() {
 		System.out.println("-----> Land Rest Controller Working!");
 		
 	}
 	
 	@GetMapping("/home")
+	//Method to check the connection with the webservice
 	public String homeRequest() {
-		return "Welcome : Home Loan Application (Version 1.0)";
+		return "Welcome : Home Loan Application (Version 1.0)";	//returns the welcome home string value
 	}
 	@ApiOperation(value="PUT mapping for the Land Verification to update the status of application",response=LandVerificationOfficer.class)
 	@PutMapping("/landstatus")
+	//Method to update loan application status, Parameters are the values of loan application class
 	public LoanApplication updateStatus(@RequestBody @Valid LoanApplication loanapplication) throws InvalidLoanApplicationException {
 		
-		return this.lservice.updateStatus(loanapplication);
+		return this.lservice.updateStatus(loanapplication);			//returns the update loan application
 	}
 		
 }
+
+//By Gaurav Shrivastava
