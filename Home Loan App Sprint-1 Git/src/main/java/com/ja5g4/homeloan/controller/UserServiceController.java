@@ -1,5 +1,7 @@
 package com.ja5g4.homeloan.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +34,7 @@ public class UserServiceController {
 	
 	@ApiOperation(value = "POST mapping to add new user as admin to the LOAN_USER table in the Database", response = User.class)
 	@PostMapping("/adduserasadmin")
-	public Admin addNewUser(@RequestBody Admin admin) {
+	public Admin addNewUser(@RequestBody  @Valid Admin admin) {
 		this.userService.addNewUser(admin);
 		return admin;
 		
@@ -40,7 +42,7 @@ public class UserServiceController {
 	
 	@ApiOperation(value = "POST mapping to add new user as landofficer to the LOAN_USER table in the Database", response = User.class)
 	@PostMapping("/adduseraslandofficer")
-	public LandVerificationOfficer addNewUser(@RequestBody LandVerificationOfficer landOfficerVerificationOfficer) {
+	public LandVerificationOfficer addNewUser(@RequestBody @Valid LandVerificationOfficer landOfficerVerificationOfficer) {
 		this.userService.addNewUser(landOfficerVerificationOfficer);
 		return landOfficerVerificationOfficer;
 		
@@ -48,7 +50,7 @@ public class UserServiceController {
 	
 	@ApiOperation(value = "POST mapping to add new user as financeofficer to the LOAN_USER table in the Database", response = User.class)
 	@PostMapping("/adduserasfinanceofficer")
-	public FinanceVerificationOfficer addNewUser(@RequestBody FinanceVerificationOfficer financeVerificationOfficer) {
+	public FinanceVerificationOfficer addNewUser(@RequestBody  @Valid FinanceVerificationOfficer financeVerificationOfficer) {
 		this.userService.addNewUser(financeVerificationOfficer);
 		return financeVerificationOfficer;
 		
@@ -56,7 +58,7 @@ public class UserServiceController {
 	
 	@ApiOperation(value = "POST mapping to add new user to the LOAN_USER table in the Database", response = User.class)
 	@PostMapping("/signin")
-	public User signIn(@RequestBody User user) {
+	public User signIn(@RequestBody  @Valid User user) {
 		this.userService.signIn(user);
 		return user;
 		
@@ -64,7 +66,7 @@ public class UserServiceController {
 
 	@ApiOperation(value = "POST mapping to logout from the LOAN_USER table in the Database", response = User.class)
 	@PostMapping("/signout")
-	public User signOut(@RequestBody User user) {
+	public User signOut(@RequestBody  @Valid User user) {
 		this.userService.signOut(user);
 		return user;
 		
