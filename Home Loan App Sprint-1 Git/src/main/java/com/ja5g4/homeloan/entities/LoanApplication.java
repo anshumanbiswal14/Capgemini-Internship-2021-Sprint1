@@ -11,11 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 
 @Entity
@@ -29,8 +28,8 @@ public class LoanApplication {
 	
 	@Column
 	@ApiModelProperty(name = "Loan application date", value = "It holds the loan application date", required = true)
-	@NotEmpty(message = "Date of application can't be empty!")
-	@Pattern(regexp="^\\d{4}-\\d{2}-\\d{2}$",message = "INVALID Date of application, ENTER AGAIN")
+	@NotNull(message = "Date of Application cannot be left empty")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate applicationDate;
 	@OneToOne
 	@JoinColumn(name = "user_Info", referencedColumnName = "userId")
@@ -39,14 +38,12 @@ public class LoanApplication {
 	
 	@Column
 	@ApiModelProperty(name = "Loan applied amount", value = "It holds the loan applied amount", required = true)
-	@NotEmpty(message = "Loan applied amount can't be empty!")
-	@Size(min = 4, max = 7, message = "Invalid loan applied amount, please enter a vaild amount!")
+	@DecimalMin(value = "0", message = "Loan applied amount should not be less than thousand values")
 	private double loanAppliedAmount;
 	
 	@Column	
 	@ApiModelProperty(name = "Loan approved amount", value = "It holds the loan approved amount", required = true)
-	@NotEmpty(message = "Loan approved amount can't be empty!")
-	@Size(min = 4, max = 7, message = "Invalid loan approved amount, please enter a vaild amount!")
+	@DecimalMin(value = "0", message = "Loan approved amount should not be less than thousand values")
 	private double loanApprovedAmount;
 	
 	@Column
