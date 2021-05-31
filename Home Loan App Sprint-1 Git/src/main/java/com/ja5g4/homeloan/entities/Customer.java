@@ -4,9 +4,13 @@ import java.time.LocalDate;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -19,8 +23,7 @@ public class Customer extends User {
 	
 	@ApiModelProperty(name = "Customer Name", value = "It holds only alphabets and accepts minimum 3 Chars", required = true)
 	@NotEmpty(message = "Customer Name can't be empty!")
-	@Size(min = 3, max = 25, message = "Invalid Customer Name please enter a vaild Customer Name!")
-	@Pattern(regexp="^[A-Za-z]+",message = "INVALID PLEASE ENTER AGAIN")	
+	@Size(min = 3, max = 25, message = "Invalid Customer Name please enter a vaild Customer Name!")	
 	private String customerName;
 
 	@ApiModelProperty(name = "Mobile Number", value = "It holds customer's phone number", required = true)	
@@ -33,13 +36,13 @@ public class Customer extends User {
 	@ApiModelProperty(name = "Customer Email ID", value = "holding customer email ID", required = true)
 	@NotEmpty(message = "Email ID can't be empty!")
 	@Size(min = 2, max = 30, message = "Invalid Email ID please enter a vaild email ID")
-	@Pattern(regexp="^[\\\\w!#$%&’*+/=?`{|}~^-]+(?:\\\\.[\\\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,6}$",message = "INVALID Email ENTER AGAIN")
+	@Email(message = "Not the proper Email ID format! enter again")
 	private String emailId;
 
 
 	@ApiModelProperty(name = "Customer DOB", value = "holding customer DOB", required = true)
-	@NotEmpty(message = "Date of Birth can't be empty!")
-	@Pattern(regexp="^\\d{4}-\\d{2}-\\d{2}$",message = "INVALID Date of Birth ENTER AGAIN")
+	@NotNull(message = "Date of birth cannot be left empty")
+	@JsonFormat(pattern = "yyy-MM-dd")
 	private LocalDate dateOfBirth;
 
 

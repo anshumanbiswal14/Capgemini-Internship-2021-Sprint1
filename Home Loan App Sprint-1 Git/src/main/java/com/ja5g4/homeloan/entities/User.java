@@ -1,6 +1,7 @@
 package com.ja5g4.homeloan.entities;
 
 import javax.persistence.DiscriminatorColumn;
+
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -31,13 +32,12 @@ public class User {
 private int userId;
 
 @ApiModelProperty(name = "Password", value = "It holds only alphabets and accepts maximun 6 Chars", required = true)
-@NotEmpty(message = "Password can't be empty!")
-@Pattern(regexp=".{6}",message = "INVALID PLEASE ENTER AGAIN")	
+@NotEmpty(message = "Password can't be empty!")	
 private String password;
-@ApiModelProperty(name = "User Role", value = "It holds only alphabets and accepts either User or Admin or FinanceOfficer or LanOfficer", required = true)
+@ApiModelProperty(name = "User Role", value = "It holds only alphabets and accepts either User or Admin or FinanceOfficer or LandOfficer or Customer", required = true)
 @NotEmpty(message = "Role Type can't be empty!")
-@Size(min = 1, max = 1, message = "Invalid Role please enter a vaild Role!")
-@Pattern(regexp=("^(user|admin|financeofficer|landofficer)$"), message = "INVALID PLEASE ENTER AGAIN")		
+@Size(min = 2, max = 14, message = "Invalid Role please enter a vaild Role!")
+@Pattern(regexp=("^(user|admin|financeofficer|landofficer|customer)$"), message = "INVALID Role PLEASE ENTER AGAIN")		
 private String role;
 
 public User() {

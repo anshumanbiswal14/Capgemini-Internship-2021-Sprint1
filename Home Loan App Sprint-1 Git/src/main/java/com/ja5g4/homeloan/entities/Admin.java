@@ -17,13 +17,13 @@ public class Admin extends User {
 	
 	@ApiModelProperty(name = "Admin Name", value = "It holds only alphabets and accepts minimum 3 Chars", required = true)
 	@NotEmpty(message = "Admin Name can't be empty!")
-	@Size(min = 3, max = 25, message = "Invalid Admin Name please enter a vaild Admin Name!")
-	@Pattern(regexp="^[A-Za-z]+",message = "INVALID PLEASE ENTER AGAIN")	
+	@Size(min = 3, max = 25, message = "Invalid Admin Name please enter a vaild Admin Name!")	
 	private String adminName;
 
 	@ApiModelProperty(name = "Phone Number", value = "It holds phone number only 10 digits allowed", required = true)
 	@NotEmpty(message = "Phone Number can't be empty!")
 	@Size(min = 10, max = 10, message = "Invalid Phone Number please enter a vaild phone number minimum of 10 digits")
+	@Pattern(regexp ="^\\d{10}$",message="Invalid input:Enter numbers only")
 	private String adminContact;
 
 public Admin() {
