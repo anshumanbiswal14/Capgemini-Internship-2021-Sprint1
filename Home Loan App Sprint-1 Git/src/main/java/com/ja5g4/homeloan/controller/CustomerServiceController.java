@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.validation.annotation.Validated;
@@ -46,7 +48,7 @@ public class CustomerServiceController {
 	
 	@ApiOperation(value = "POST mapping to add new customers to the LOAN_USER table in the Database", response = Customer.class)
 	@PostMapping("/add")
-	public Customer addCustomer(@RequestBody Customer customer) {
+	public Customer addCustomer(@RequestBody @Valid Customer customer) {
 		this.customerService.addCustomer(customer);
 		return customer;
 	}
@@ -58,7 +60,7 @@ public class CustomerServiceController {
 	}
 	@ApiOperation(value = "PUT mapping to update customer details by customer ID", response = Customer.class )
 	@PutMapping("/update")
-	public Customer updateCustomer(@RequestBody Customer customer) throws CustomerNotFoundException{
+	public Customer updateCustomer(@RequestBody @Valid Customer customer) throws CustomerNotFoundException{
 		return this.customerService.updateCustomer(customer);
 		
 	}
@@ -70,7 +72,7 @@ public class CustomerServiceController {
 	}
 	@ApiOperation(value = "GET mapping to get all customers from the database", response = List.class )
 	@GetMapping("/viewall")
-	public List<Customer> viewAllCustomers(@RequestBody Customer customer){
+	public List<Customer> viewAllCustomers(@RequestBody @Valid Customer customer){
 		return this.customerService.viewAllCustomers();
 		
 	}
