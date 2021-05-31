@@ -2,26 +2,48 @@ package com.ja5g4.homeloan.entities;
 
 import java.time.LocalDate;
 
+
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity
-public class EMI {
+@ApiModel(value = "EMI Bean Class")
+public class EMI  {
+
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long EMIId;
-	@Column
+	
+	@ApiModelProperty(name = "EMI ID", value = "holding EMI ID", required = true)
+	private Long EMIId;
+	
+	@ApiModelProperty(name = "Due Date", value = "It holds the Due Date", required = true)
+	@NotEmpty(message = "Due Date can't be empty!")
+	@Pattern(regexp="^\\\\d{4}-\\\\d{2}-\\\\d{2}$",message = "INVALID Due Date ENTER AGAIN")
 	private LocalDate dueDate;
-	@Column
-	private double emiAmount;
-	@Column
-	private double loanAmount;
-	@Column
-	private double interestAmount;
+	
+	@ApiModelProperty(name = "EMI Amount", value = "It holds the EMI Amount", required = true)
+	@NotEmpty(message = "EMI Amount can't be empty!")
+	@Size(min = 3, max = 7,message = "INVALID EMI Amount ENTER AGAIN")
+	private double emiAmount ;
+	
+	@ApiModelProperty(name = "Loan Amount", value = "It holds the Loan Amount", required = true)
+	@NotEmpty(message = "Loan Amount can't be empty!")
+	@Size(min = 3, max = 7,message = "INVALID Loan Amount ENTER AGAIN")
+	private double loanAmount ;
+	
+	@ApiModelProperty(name = "Interest Amount", value = "It holds the Interest Amount", required = true)
+	private double interestAmount ;
+	
+
 	
 	
 	public EMI() {
