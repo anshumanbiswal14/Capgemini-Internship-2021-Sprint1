@@ -25,9 +25,11 @@ public class LoanAgreement {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@ApiModelProperty(name = "Loan Agreement ID", value = "It holds the loan agreement ID", required = true)
 	private long loanAgreementId;
+	
 	@Column
 	@ApiModelProperty(name = "Loan Application ID", value = "It holds the loan application ID", required = true)
 	private long loanApplicationId;
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "LOAN_EMI", joinColumns = @JoinColumn(name = "loanAgreementId" ),
 	inverseJoinColumns = @JoinColumn(name = "EMIId"))

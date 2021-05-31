@@ -4,3 +4,4 @@ Home Loan App Sprint-1 Git/src/main/resources/application.properties
 .sonarlint/default/.sonartmp_3808698460687221581/sonarlint-slf4j-sonar-log14881465636597597469.jar
 Home Loan App Sprint-1 Git/src/main/resources/application.properties
 .sonarlint/default/.sonartmp_17605418242122528993/sonarlint-slf4j-sonar-log8482601141746676532.jar
+*.properties
