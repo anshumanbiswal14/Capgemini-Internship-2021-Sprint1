@@ -1,5 +1,7 @@
 package com.ja5g4.homeloan.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,7 +37,7 @@ public class FinanceVerificationController {
 	}
 	@ApiOperation(value="PUT mapping for the Finance Verification to update the status of application",response=FinanceVerificationController.class)
 	@PutMapping("/financestatus")
-	public LoanApplication updateStatus(@RequestBody LoanApplication loanapplication) throws InvalidLoanApplicationException {
+	public LoanApplication updateStatus(@RequestBody @Valid LoanApplication loanapplication) throws InvalidLoanApplicationException {
 		
 		return this.service.updateStatus(loanapplication);
 	}

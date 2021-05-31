@@ -2,6 +2,8 @@ package com.ja5g4.homeloan.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -43,14 +45,14 @@ public String homeRequest() {
 
 @ApiOperation(value = "POST mapping to add new loan agreements to the LOAN_AGREEMENT table in the Database", response = LoanAgreement.class)
 @PostMapping("/add")
-public LoanAgreement addLoanAgreement(@RequestBody LoanAgreement loanAgreement) {
+public LoanAgreement addLoanAgreement(@RequestBody @Valid LoanAgreement loanAgreement) {
 	this.loanAgreement_service.addLoanAgreement(loanAgreement);
 	return loanAgreement;
 }
 
 @ApiOperation(value = "PUT mapping to update the loan agreements in the LOAN_AGREEMENT table in the Database", response = LoanAgreement.class)
 @PutMapping("/update")
-public LoanAgreement updateLoanAgreement(@RequestBody LoanAgreement loanAgreement) throws InvalidLoanAgreementException {
+public LoanAgreement updateLoanAgreement(@RequestBody @Valid LoanAgreement loanAgreement) throws InvalidLoanAgreementException {
 	this.loanAgreement_service.updateLoanAgreement(loanAgreement);
 	return loanAgreement;
 }
@@ -64,7 +66,7 @@ public LoanAgreement deleteLoanAgreement(@PathVariable("loanid") long loanAgreem
 
 @ApiOperation(value = "GET mapping to view all the loan agreements in the database ", response = List.class)
 @GetMapping("/viewallloan")
-public List<LoanAgreement> retrieveAllLoanAgreement(@RequestBody LoanAgreement loanAgreement){
+public List<LoanAgreement> retrieveAllLoanAgreement(@RequestBody @Valid LoanAgreement loanAgreement){
 	return this.loanAgreement_service.retrieveAllLoanAgreement();
 	
 }
