@@ -18,6 +18,10 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 	@Autowired
 	ILoanApplicationRepository repository;
 
+	public ILoanApplicationServiceImpl(ILoanApplicationRepository applicationrepo) {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Transactional
 	@Override
 	public LoanApplication addLoanApplication(LoanApplication loanApplication) {
