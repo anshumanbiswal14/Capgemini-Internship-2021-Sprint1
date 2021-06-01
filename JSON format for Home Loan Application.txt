@@ -1,0 +1,139 @@
+Procedure for the testing in postman
+
+----> Add Admin,Finance and Land Verification Officer(Only once is enough)
+---------------------------------------------------------------------------------------------------
+ADMIN
+---------------------------------------------------------------------------------------------------
+Important:The role must be "admin" for this
+--------------------------------------Json for  Admin-----------------------------------------------
+{
+     "password" : "admin123",
+     "role" : "admin",
+     "adminName" : "Ajay",
+     "adminContact" : 9066827212
+
+}
+---------------------------------------------------------------------------------------------------
+FinanceOfficer
+---------------------------------------------------------------------------------------------------
+Important:The role must be "financeofficer" for this
+--------------------------------------Json for Finance-----------------------------------------------
+{
+     "password" : "finance@123",
+     "role" : "financeofficer",
+     "finOfficerName" : "Amisha",
+     "finOfficerContact" :9069999090
+
+}
+---------------------------------------------------------------------------------------------------
+LandOfficer
+---------------------------------------------------------------------------------------------------
+Important:The role must be "landofficer" for this
+--------------------------------------Json for Land-----------------------------------------------
+
+{
+     "password" : "land@123",
+     "role" : "landofficer",
+     "officerName" : "Amrit",
+     "officerContact" :9055999090
+
+}
+
+---->Add Customer(multiple customer for multiple application)
+Important:The role must be customer for this
+--------------------------------------Json for Customer-----------------------------------------------
+{
+     "password" : "awsedrfts@12",
+     "role" : "customer",
+     "customerName": "Karthik",
+    "mobileNumber": "9045457223",
+    "emailId": "himagani21@gmail.com",
+    "dateOfBirth": "2005-04-21",
+    "gender": "Female",
+    "nationality": "NRI",
+    "aadharNumber": "123456789123",
+    "panNumber": "1234567890"
+}
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+---->Add application
+---------------------------------------------------------------------------------------------------------
+Important:The user id should of the customer which is present in the DB
+Important:Admin approval can be altered to false only if status is rejected.
+--------------------------------------Json for Application-----------------------------------------------
+{
+"applicationDate" : "2021-05-31",
+"customer" : {"userId" : 214},
+"loanAppliedAmount" : 140000,
+"adminApproval" : true,
+"status" : "WAITING_FOR_FINANCE_APPROVAL"
+}
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+---->update application from financial verification officer
+----------------------------------------------------------------------------------------------------------------------------
+Important:The application id and user id should be present in the DB and sud be associated with each other.
+Important:For approval,The finance verification can only be altered to false if only status is changed to as per the enums other than
+WAITING_FOR_LAND_VERIFICATION_OFFICE_APPROVAL.Admin Approval is always true here
+--------------------------------------Json for Finance----------------------------------------------------------------------
+ {
+    "applicationId": 216,
+    "applicationDate": "2021-05-31",
+    "customer":{"userId":214},
+    "loanAppliedAmount": 140000,
+    "loanApprovedAmount": 100000,
+    "financeVerificationApproval": true,
+    "adminApproval": true,
+    "status": "WAITING_FOR_LAND_VERIFICATION_OFFICE_APPROVAL"
+    }
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+----->update application from land verification officer
+----------------------------------------------------------------------------------------------------------------------------
+Important:The application id and user id should be present in the DB and sud be associated with each other.
+Important:For approval,The land verification can only be altered to false if only status is changed to as per the enums other than
+APPROVED.admin & finance approval is always true.
+--------------------------------------Json for Land--------------------------------------------------------------------------
+			
+ {
+    "applicationId": 216,
+    "applicationDate": "2021-05-31",
+    "customer":{"userId":214},
+    "loanAppliedAmount": 140000,
+    "loanApprovedAmount": 100000,
+    "landVerificationApproval":true,
+    "financeVerificationApproval": true,
+    "adminApproval": true,
+    "status": "APPROVED"
+
+}
+------------------------------------------------------------------------------------------------------
+----->insert values for agreement
+------------------------------------------------------------------------------------------------------
+Important:loanApplication Id sud be present in the db.
+-------------------------------------Json for Agreement-----------------------------------------------
+
+{
+    
+    "loanApplicationId": 216
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
