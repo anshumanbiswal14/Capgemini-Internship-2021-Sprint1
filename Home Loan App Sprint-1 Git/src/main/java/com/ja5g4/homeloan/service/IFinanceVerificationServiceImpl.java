@@ -20,7 +20,14 @@ public class IFinanceVerificationServiceImpl implements IFinanceVerificationServ
 	IFinanceVerificationRepository verificationRepository;
 	@Autowired
 	ILoanApplicationRepository applicationRepository;
-	
+
+
+	public IFinanceVerificationServiceImpl(ILoanApplicationRepository applicationRepository) {
+		super();
+		this.applicationRepository = applicationRepository;
+	}
+
+
 	@Override
 	@Transactional
 	//method to check loan application is present in the DB, update if application is present else invoke Exception class

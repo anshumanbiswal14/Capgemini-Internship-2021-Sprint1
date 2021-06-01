@@ -8,22 +8,24 @@ import org.springframework.stereotype.Service;
 
 import com.ja5g4.homeloan.entities.LoanApplication;
 import com.ja5g4.homeloan.exception.InvalidLoanApplicationException;
-import com.ja5g4.homeloan.repository.ILandVerificationRepository;
 import com.ja5g4.homeloan.repository.ILoanApplicationRepository;
 
 @Service
 public class ILandVerificationServiceImpl implements ILandVerificationService{
 
-	@Autowired
-	ILandVerificationRepository landVerificationRepository;
+//	@Autowired
+//	ILandVerificationRepository landVerificationRepository;
 	
 	@Autowired
 	ILoanApplicationRepository applicationRepository;
 	
 	
-	public ILandVerificationServiceImpl(ILandVerificationRepository verificationRepo) {
-		// TODO Auto-generated constructor stub
+
+	public ILandVerificationServiceImpl(ILoanApplicationRepository applicationRepository) {
+		super();
+		this.applicationRepository = applicationRepository;
 	}
+
 
 
 	@Override

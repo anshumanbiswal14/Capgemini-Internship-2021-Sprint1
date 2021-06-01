@@ -82,6 +82,14 @@ public class LoanApplication {
 		this.adminApproval = adminApproval;
 		this.status = status;
 	}
+	
+	
+	public LoanApplication(long applicationId, Status status) {
+		super();
+		this.applicationId = applicationId;
+		this.status = status;
+	}
+
 	public long getApplicationId() {
 		return applicationId;
 	}
