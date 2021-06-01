@@ -27,6 +27,11 @@ public class ICustomerServiceImpl implements ICustomerService  {
 	@Autowired
 	ILoanApplicationRepository applicationRepository;
 	
+	public ICustomerServiceImpl(ICustomerRepository repository) {
+		super();
+		this.repository = repository;
+	}
+
 	@Transactional
 	@Override
 	public Customer addCustomer(Customer customer) {
