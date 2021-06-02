@@ -1,16 +1,12 @@
 package com.ja5g4.homeloan.LoanApplicationServiceTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertIterableEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,11 +14,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.ja5g4.homeloan.entities.LoanApplication;
+import com.ja5g4.homeloan.entities.Status;
 import com.ja5g4.homeloan.exception.InvalidLoanApplicationException;
 import com.ja5g4.homeloan.repository.ILoanApplicationRepository;
 import com.ja5g4.homeloan.service.ILoanApplicationServiceImpl;
@@ -37,8 +33,8 @@ public class LoanApplicationServiceTest {
 	@BeforeEach
 	public void doinit()
 	{
-		applicationrepo = mock(ILoanApplicationRepository.class); // Test through Approach 2
-		applicationService = new  ILoanApplicationServiceImpl(applicationrepo); // Approach 2
+		applicationrepo = mock(ILoanApplicationRepository.class); 
+		applicationService = new  ILoanApplicationServiceImpl(applicationrepo); 
 		ac = MockitoAnnotations.openMocks(this);
 	}
 	
@@ -50,7 +46,7 @@ public class LoanApplicationServiceTest {
 	
 	@Test
 	//@Disabled
-	@DisplayName("Test- Add Loan Application")
+	@DisplayName("Test - Add Loan Application")
 	void testaddLoanApplication() {
 	
 		LoanApplication input = new LoanApplication();
@@ -62,81 +58,38 @@ public class LoanApplicationServiceTest {
 		input.setLandVerificationApproval(true);
 		input.setFinanceVerificationApproval(false);
 		input.setAdminApproval(true);
-		input.setStatus(null);
+		input.setStatus(Status.APPROVED);
 		
-		LoanApplication output = new LoanApplication();
-		output.setApplicationId(101);
-		output.setApplicationDate(LocalDate.parse("2020-01-08"));
-		output.setCustomer(null);
-		output.setLoanAppliedAmount(190000);
-		output.setLoanApprovedAmount(90000);
-		output.setLandVerificationApproval(true);
-		output.setFinanceVerificationApproval(false);
-		output.setAdminApproval(true);
-		output.setStatus(null);
-			
-		when(applicationrepo.save(output)).thenReturn(output);
-		applicationService.addLoanApplication(output);
-	 	verify(applicationrepo).save(output);
-		assertEquals(output,output);
+		when(applicationrepo.save(input)).thenReturn(input);
+		LoanApplication application_test = applicationService.addLoanApplication(input);
+		assertEquals(input, application_test );
+
 		
 	}
 	
-	
 	@Test
-	//@Disabled
+	// @Disabled
 	@DisplayName("Test - Get All Loan Applications")
-	void testGetAllCustomers() {
-		
-		LoanApplication L1 = new LoanApplication();
-		L1.setApplicationId(101);
-		L1.setApplicationDate(LocalDate.parse("2020-01-08"));
-		L1.setCustomer(null);
-		L1.setLoanAppliedAmount(190000);
-		L1.setLoanApprovedAmount(90000);
-		L1.setLandVerificationApproval(true);
-		L1.setFinanceVerificationApproval(false);
-		L1.setAdminApproval(true);
-		L1.setStatus(null);
-		
-		LoanApplication L2 = new LoanApplication();
-		L2.setApplicationId(101);
-		L2.setApplicationDate(LocalDate.parse("2020-01-08"));
-		L2.setCustomer(null);
-		L2.setLoanAppliedAmount(190000);
-		L2.setLoanApprovedAmount(90000);
-		L2.setLandVerificationApproval(true);
-		L2.setFinanceVerificationApproval(false);
-		L2.setAdminApproval(true);
-		L2.setStatus(null);
-		
-		List<LoanApplication> loanApplicationList1 = new ArrayList<>();
-		loanApplicationList1.add(L1);
-		loanApplicationList1.add(L2);
-		
-		when(applicationrepo.findAll()).thenReturn(loanApplicationList1);
-		
-		List<LoanApplication> applicationListOutput = applicationService.retrieveAllLoanApplication();
-		
-		
-		verify(applicationrepo).findAll();
-		assertIterableEquals(loanApplicationList1, applicationListOutput);
+	void testretrieveAllLoanApplication() {
+		List<LoanApplication> applicationList = mock(List.class);
+		when(applicationrepo.findAll()).thenReturn(applicationList);
+		List<LoanApplication> outputApplicationList = applicationService.retrieveAllLoanApplication();
+		assertEquals(applicationList, outputApplicationList);
 	}
 
 	
 	@Test
-	//@Disabled
+	// @Disabled
 	@DisplayName("Test - Get Loan Application by ID")
-	void retrieveLoanApplicationById()  throws InvalidLoanApplicationException{
+	void testViewCustomerById() throws InvalidLoanApplicationException {
+
 		
-		Optional<LoanApplication> s = Optional.empty();
-		
-		when(applicationrepo.findById(null)).thenReturn(s);
-		verify(applicationrepo).findById(null);
-		Executable executable = ()->{
-			assertNotNull(applicationService.retrieveLoanApplicationById(101));
-		};
-		assertThrows(InvalidLoanApplicationException.class, executable);
+		Long input = (long) 10120201;
+		LoanApplication loanApplication = mock(LoanApplication.class);
+		Optional<LoanApplication> optional_loanApplication = Optional.of(loanApplication);
+		when(applicationrepo.findById(input)).thenReturn(optional_loanApplication);
+		Optional<LoanApplication> application_test = Optional.of(applicationService.retrieveLoanApplicationById(input));
+		assertEquals(optional_loanApplication, application_test);
 	}
 	
 	@Test
@@ -199,6 +152,7 @@ public class LoanApplicationServiceTest {
 		input.setAdminApproval(true);
 		input.setStatus(null);
         
+		Optional<LoanApplication> optionalApplication = Optional.of(input);
 		LoanApplication output = new LoanApplication();
 		output.setApplicationId(101);
 		output.setApplicationDate(LocalDate.parse("2020-01-08"));
@@ -210,16 +164,11 @@ public class LoanApplicationServiceTest {
 		output.setAdminApproval(true);
 		output.setStatus(null);
 		
-		try{
-			when(applicationrepo.save(input)).thenReturn(output);
-			
-			applicationService.updateLoanApplication(input);
-
-			assertEquals(input,output);
-		}
-		catch(InvalidLoanApplicationException e) {
-			
-		}
+		when(applicationrepo.findById((long) 101)).thenReturn(optionalApplication);
+		when(applicationrepo.save(output)).thenReturn(output);
+		LoanApplication application_test=applicationService.updateLoanApplication(output);
+		assertEquals(output,application_test);
+		
 	}
 	
 }	
