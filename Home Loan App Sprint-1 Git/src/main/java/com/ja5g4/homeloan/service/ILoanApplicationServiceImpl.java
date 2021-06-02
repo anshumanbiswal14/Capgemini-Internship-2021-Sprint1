@@ -18,8 +18,11 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 	@Autowired
 	ILoanApplicationRepository repository;
 
-	public ILoanApplicationServiceImpl(ILoanApplicationRepository applicationrepo) {
-		// TODO Auto-generated constructor stub
+	
+
+	public ILoanApplicationServiceImpl(ILoanApplicationRepository repository) {
+		super();
+		this.repository = repository;
 	}
 
 	@Transactional
@@ -90,7 +93,7 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 		Optional<LoanApplication> optional = null;
 		try {
 			optional = repository.findById(loanApplicationId);
-			if(optional.get() == null) {
+			if(optional.isPresent()) {
 				repository.findById(loanApplicationId);
 			}
 			else {

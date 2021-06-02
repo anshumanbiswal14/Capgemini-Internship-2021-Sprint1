@@ -84,7 +84,7 @@ public class LoanApplicationServiceTest {
 	void testViewCustomerById() throws InvalidLoanApplicationException {
 
 		
-		Long input = (long) 10120201;
+		Long input = (long) 101;
 		LoanApplication loanApplication = mock(LoanApplication.class);
 		Optional<LoanApplication> optional_loanApplication = Optional.of(loanApplication);
 		when(applicationrepo.findById(input)).thenReturn(optional_loanApplication);

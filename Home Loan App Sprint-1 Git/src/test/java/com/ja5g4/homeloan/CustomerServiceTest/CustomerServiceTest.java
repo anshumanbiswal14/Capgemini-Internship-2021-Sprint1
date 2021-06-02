@@ -11,8 +11,11 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.ja5g4.homeloan.entities.Customer;
@@ -30,6 +33,21 @@ public class CustomerServiceTest {
 	ILoanAgreementRepository agreementRepo;
 	private static ICustomerServiceImpl customerService;
 
+	private static AutoCloseable ac;
+	
+	@BeforeEach
+	public void doinit()
+	{
+	      customerRepo = mock(ICustomerRepository.class); // test through approach 2
+	      customerService = new  ICustomerServiceImpl(customerRepo); 	// Approach 2
+		ac = MockitoAnnotations.openMocks(this);
+	}
+	
+	@AfterEach
+	public void doAtEnd()throws Exception
+	{
+		ac.close();
+	}
 	@Test
 	// @Disabled
 	@DisplayName("Test-Save-Customer")
