@@ -24,7 +24,7 @@ public class Customer extends User {
 	@ApiModelProperty(name = "Customer Name", value = "It holds only alphabets and accepts minimum 3 Chars", required = true)
 	@NotEmpty(message = "Customer Name can't be empty!")
 	@Size(min = 3, max = 25, message = "Invalid Customer Name please enter a vaild Customer Name!")	
-	@Pattern(regexp = "^[a-zA-Z]*$",message = "Accepts only alphabets! re-enter the name")
+	@Pattern(regexp = "^([a-zA-Z]*((\s)))+[a-zA-Z]*$",message = "Accepts only alphabets! re-enter the name")
 	private String customerName;
 
 	@ApiModelProperty(name = "Mobile Number", value = "It holds customer's phone number", required = true)	

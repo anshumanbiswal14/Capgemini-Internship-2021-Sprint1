@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class User {
 
 @Id	
-//@GeneratedValue(strategy = GenerationType.AUTO)
+@GeneratedValue(strategy = GenerationType.AUTO)
 private int userId;
 
 @ApiModelProperty(name = "Password", value = "It holds only alphabets and accepts maximun 6 Chars", required = true)
