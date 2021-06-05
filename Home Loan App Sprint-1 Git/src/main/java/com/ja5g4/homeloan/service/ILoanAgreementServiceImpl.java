@@ -138,7 +138,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 	@Transactional
 	public LoanAgreement updateLoanAgreement(LoanAgreement loanAgreement) throws InvalidLoanAgreementException {
 
-		Optional<LoanAgreement> optional = null;
+		Optional<LoanAgreement> optional =Optional.empty();
 
 		optional = repository.findById(loanAgreement.getLoanAgreementId());
 		if (optional.isPresent()) {
@@ -157,7 +157,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 	@Transactional
 	public LoanAgreement deleteLoanAgreement(long loanAgreementId) throws InvalidLoanAgreementException {
 
-		Optional<LoanAgreement> optional = null;
+		Optional<LoanAgreement> optional =Optional.empty();
 
 		optional = repository.findById(loanAgreementId);
 		if (optional.isPresent()) {
@@ -184,22 +184,18 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 	@Override
 	public LoanAgreement retrieveLoanAgreementById(long loanAgreementId) throws InvalidLoanAgreementException {
 
-		Optional<LoanAgreement> optional = null;
-		try {
+		Optional<LoanAgreement> optional = Optional.empty();
+	
 			optional = repository.findById(loanAgreementId);
 			if (optional.isPresent()) {
 				repository.findById(loanAgreementId);
+				return optional.get();
 			} else {
 				throw new InvalidLoanAgreementException("Loan agreement ID not found in records!");
 			}
 
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (optional.get() == null) {
-				throw new InvalidLoanAgreementException("Loan agreement ID not found in records!");
-			}
-		}
-		return optional.get();
+		
+		
 	}
 
 }

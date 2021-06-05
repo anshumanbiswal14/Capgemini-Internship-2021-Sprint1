@@ -17,14 +17,12 @@ import com.ja5g4.homeloan.repository.ILoanApplicationRepository;
 public class IFinanceVerificationServiceImpl implements IFinanceVerificationService {
 
 	@Autowired
-	IFinanceVerificationRepository verificationRepository;
-	@Autowired
-	ILoanApplicationRepository applicationRepository;
+	ILoanApplicationRepository fApplicationRepository;
 
 
 	public IFinanceVerificationServiceImpl(ILoanApplicationRepository applicationRepository) {
 		super();
-		this.applicationRepository = applicationRepository;
+		this.fApplicationRepository = applicationRepository;
 	}
 
 
@@ -33,10 +31,10 @@ public class IFinanceVerificationServiceImpl implements IFinanceVerificationServ
 	//method to check loan application is present in the DB, update if application is present else invoke Exception class
 	public LoanApplication updateStatus(LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		
-		Optional<LoanApplication> optional = null;
-		optional=applicationRepository.findById(loanApplication.getApplicationId());
+		Optional<LoanApplication> optional = Optional.empty();
+		optional=fApplicationRepository.findById(loanApplication.getApplicationId());
 			if(optional.isPresent()) {
-			applicationRepository.save(loanApplication);
+			fApplicationRepository.save(loanApplication);
 			return loanApplication;
 			}
 			else {
