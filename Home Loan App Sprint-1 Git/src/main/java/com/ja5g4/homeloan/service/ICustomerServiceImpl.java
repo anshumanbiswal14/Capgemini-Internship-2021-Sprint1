@@ -4,11 +4,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ja5g4.homeloan.controller.CustomerServiceController;
 import com.ja5g4.homeloan.entities.Customer;
 import com.ja5g4.homeloan.entities.LoanAgreement;
 import com.ja5g4.homeloan.entities.LoanApplication;
@@ -19,6 +22,7 @@ import com.ja5g4.homeloan.repository.ILoanApplicationRepository;
 
 @Service
 public class ICustomerServiceImpl implements ICustomerService  {
+	Logger logger = Logger.getLogger(ICustomerServiceImpl.class.getName());
 	
 	@Autowired
 	ICustomerRepository repository;
@@ -95,7 +99,7 @@ public class ICustomerServiceImpl implements ICustomerService  {
 			}
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info(e.getMessage());
 			throw new CustomerNotFoundException("Customer not found with the matching ID!");
 		}
 		return optional.get();
@@ -107,7 +111,7 @@ public class ICustomerServiceImpl implements ICustomerService  {
 		try {
 			customerList = repository.findAll();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info(e.getMessage());
 			
 		}
 		
@@ -135,7 +139,7 @@ public class ICustomerServiceImpl implements ICustomerService  {
 			}
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info(e.getMessage());
 		}
 		
 		return customerList;

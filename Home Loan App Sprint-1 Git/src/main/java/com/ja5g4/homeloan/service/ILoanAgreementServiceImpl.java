@@ -1,9 +1,11 @@
 package com.ja5g4.homeloan.service;
 
 import java.time.LocalDate;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import javax.transaction.Transactional;
 
@@ -20,6 +22,7 @@ import com.ja5g4.homeloan.util.EmiCalculator;
 
 @Service
 public class ILoanAgreementServiceImpl implements ILoanAgreementService {
+	Logger logger = Logger.getLogger(ILoanAgreementServiceImpl.class.getName());
 
 	@Autowired
 	ILoanAgreementRepository repository;
@@ -129,7 +132,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 
 			repository.save(loanAgreement);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info(e.getMessage());
 		}
 		return loanAgreement;
 	}
@@ -176,7 +179,7 @@ public class ILoanAgreementServiceImpl implements ILoanAgreementService {
 		try {
 			list = repository.findAll();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info(e.getMessage());
 		}
 		return list;
 	}

@@ -26,7 +26,6 @@ public class EMI  {
 	private Long EMIId;
 	
 	@ApiModelProperty(name = "Due Date", value = "It holds the Due Date", required = true)
-	@NotNull(message = "Date of Application cannot be left empty")
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate dueDate;
 	

@@ -28,9 +28,9 @@ public class LoanApplication {
 	
 	@Column
 	@ApiModelProperty(name = "Loan application date", value = "It holds the loan application date", required = true)
-	@NotNull(message = "Date of Application cannot be left empty")
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate applicationDate;
+	
 	@OneToOne
 	@JoinColumn(name = "user_Info", referencedColumnName = "userId")
 	@ApiModelProperty(name = "Customer", value = "It holds the customer information", required = true)

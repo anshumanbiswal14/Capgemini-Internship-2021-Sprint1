@@ -42,7 +42,6 @@ public class Customer extends User {
 
 
 	@ApiModelProperty(name = "Customer DOB", value = "holding customer DOB", required = true)
-	@NotNull(message = "Date of birth cannot be left empty")
 	@JsonFormat(pattern = "yyy-MM-dd")
 	private LocalDate dateOfBirth;
 

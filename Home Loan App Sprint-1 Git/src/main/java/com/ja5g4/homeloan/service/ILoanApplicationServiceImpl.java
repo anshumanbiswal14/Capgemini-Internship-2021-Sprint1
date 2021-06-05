@@ -3,6 +3,8 @@ package com.ja5g4.homeloan.service;
 import java.util.List;
 
 import java.util.Optional;
+import java.util.logging.Logger;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import com.ja5g4.homeloan.repository.ILoanApplicationRepository;
 
 @Service
 public class ILoanApplicationServiceImpl implements ILoanApplicationService {
+	Logger logger = Logger.getLogger(ILoanApplicationServiceImpl.class.getName());
 	
 	@Autowired
 	ILoanApplicationRepository repository;
@@ -32,7 +35,7 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 		try {
 			repository.save(loanApplication);
 			}catch (Exception e) {
-				e.printStackTrace();
+				logger.info(e.getMessage());
 			}
 			return loanApplication;
 	}
@@ -82,7 +85,7 @@ public class ILoanApplicationServiceImpl implements ILoanApplicationService {
 		try {
 			 list = repository.findAll();
 		}catch (Exception e) {
-			e.printStackTrace();
+			logger.info(e.getMessage());
 		}
 		return list;
 	}
