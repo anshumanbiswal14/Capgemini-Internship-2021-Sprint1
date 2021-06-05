@@ -1,5 +1,8 @@
 package com.ja5g4.homeloan.controller;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +25,13 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/financeverify")
 @ApiModel(value="Finance Verification Controller", description = "Holds all APIs related to the Finanace")
 public class FinanceVerificationController {
-
+	Logger logger = Logger.getLogger(FinanceVerificationController.class.getName());
 	@Autowired
 	private IFinanceVerificationService service;
 	
 	//Method to check the working of rest controller in the console
 	public FinanceVerificationController() {
-		System.out.println("-----> Finance Rest Controller Working!");
+		logger.log(Level.INFO,"-----> Finance Rest Controller Working!");
 		
 	}
 	

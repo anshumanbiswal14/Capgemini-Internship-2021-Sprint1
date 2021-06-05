@@ -2,6 +2,10 @@ package com.ja5g4.homeloan.controller;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.logging.Level;
+
+import java.util.logging.Logger;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,14 +32,14 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/customer")
 @ApiModel(value = "Customer Service Rest Controller" , description = "Holds all APIs related to the customer")
 public class CustomerServiceController {
-	
+	Logger logger = Logger.getLogger(CustomerServiceController.class.getName());
 	@Autowired
 	private ICustomerService customerService;
 	
 	
 	
 	public CustomerServiceController() {
-		System.out.println("-----> Customer Rest Controller Working!");
+		logger.log(Level.INFO,"-----> Customer Rest Controller Working!");
 		
 	}
 

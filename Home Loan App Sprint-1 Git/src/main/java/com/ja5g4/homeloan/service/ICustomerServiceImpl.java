@@ -48,7 +48,7 @@ public class ICustomerServiceImpl implements ICustomerService  {
 	@Override
 	public Customer updateCustomer(Customer customer) throws CustomerNotFoundException {
 		
-		Optional<Customer> optional = null;
+		Optional<Customer> optional = Optional.empty();
 		
 			optional = repository.findById(customer.getUserId());
 			if(optional.isPresent()) {
@@ -66,7 +66,7 @@ public class ICustomerServiceImpl implements ICustomerService  {
 	@Override
 	public Customer deleteCustomer(int custid) throws CustomerNotFoundException {
 		
-		Optional<Customer> optional = null;
+		Optional<Customer> optional =Optional.empty();
 		
 			optional = repository.findById(custid);
 			if(optional.isPresent()) 
@@ -84,7 +84,7 @@ public class ICustomerServiceImpl implements ICustomerService  {
 	@Override
 	public Customer viewCustomer(int custid) throws CustomerNotFoundException {
 	
-		Optional<Customer> optional = null;
+		Optional<Customer> optional = Optional.empty();
 		try {
 			optional = repository.findById(custid);
 			if(optional.isPresent()) {

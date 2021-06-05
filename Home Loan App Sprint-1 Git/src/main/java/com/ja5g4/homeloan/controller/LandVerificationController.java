@@ -1,5 +1,8 @@
 package com.ja5g4.homeloan.controller;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +27,10 @@ public class LandVerificationController {
 	
 	@Autowired
 	private ILandVerificationService lservice;
-	
+	Logger logger = Logger.getLogger(LandVerificationController.class.getName());
 	//Method to check the working of land rest controller in the console
 	public LandVerificationController() {
-		System.out.println("-----> Land Rest Controller Working!");
+		logger.log(Level.INFO,"-----> Land Rest Controller Working!");
 		
 	}
 	

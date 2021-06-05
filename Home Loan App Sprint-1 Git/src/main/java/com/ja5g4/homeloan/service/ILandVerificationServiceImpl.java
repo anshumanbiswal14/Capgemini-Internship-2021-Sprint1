@@ -29,7 +29,7 @@ public class ILandVerificationServiceImpl implements ILandVerificationService{
 	@Transactional
 	//method to check loan application is present in the DB, update if application is present else invoke Exception class
 	public LoanApplication updateStatus(LoanApplication loanApplication) throws InvalidLoanApplicationException {
-		Optional<LoanApplication> optional=null;
+		Optional<LoanApplication> optional=Optional.empty();
 		optional=applicationRepository.findById(loanApplication.getApplicationId());
 		
 			if(optional.isPresent()) {
