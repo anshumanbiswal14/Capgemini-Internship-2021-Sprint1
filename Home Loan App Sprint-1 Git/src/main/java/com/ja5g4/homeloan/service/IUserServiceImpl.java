@@ -12,6 +12,11 @@ public class IUserServiceImpl implements IUserService {
 	
 	@Autowired
 	IUserRepository repository;
+	
+	public IUserServiceImpl(IUserRepository repository) {
+		super();
+		this.repository = repository;
+	}
 
 	@Override
 	public User addNewUser(User user) {
