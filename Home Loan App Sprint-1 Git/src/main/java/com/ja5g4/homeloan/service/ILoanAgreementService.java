@@ -8,7 +8,7 @@ import com.ja5g4.homeloan.exception.InvalidLoanAgreementException;
 
 public interface ILoanAgreementService{
 	
-		public LoanAgreement addLoanAgreement(LoanAgreement loanAgreement) ;	
+		public LoanAgreement addLoanAgreement(LoanAgreement loanAgreement);
 		public LoanAgreement updateLoanAgreement(LoanAgreement loanAgreement) throws InvalidLoanAgreementException;
 		public LoanAgreement deleteLoanAgreement(long loanAgreementId) throws InvalidLoanAgreementException;
 		public List<LoanAgreement> retrieveAllLoanAgreement();

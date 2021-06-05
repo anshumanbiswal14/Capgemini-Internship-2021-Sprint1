@@ -1,5 +1,7 @@
 package com.ja5g4.homeloan.controller;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +25,10 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/user")
 @ApiModel(value = "User Service Rest Controller" , description = "Holds all APIs related to the User Service")
 public class UserServiceController {
+	Logger logger = Logger.getLogger(LoanAgreementController.class.getName());	
 	
 	public UserServiceController() {
-		System.out.println("------>User Service Rest Working!");
+		logger.log(Level.INFO,"----->Inside User Service Controller Working!");
 	}
 	
 	@Autowired

@@ -49,4 +49,3 @@ public class LandVerificationController {
 		
 }
 
-//By Gaurav Shrivastava

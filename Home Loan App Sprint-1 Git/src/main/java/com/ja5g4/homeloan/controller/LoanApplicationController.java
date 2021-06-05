@@ -1,6 +1,8 @@
 package com.ja5g4.homeloan.controller;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.validation.Valid;
 
@@ -28,10 +30,10 @@ import io.swagger.annotations.ApiOperation;
 @ApiModel(value = "Loan Application Rest Controller" , description = "Holds all APIs related to the Loan Application")
 public class LoanApplicationController {
 	
-	
+Logger logger = Logger.getLogger(LoanAgreementController.class.getName());	
 
 	public LoanApplicationController() {
-		System.out.println("-----> Loan Application Rest Controller Working!");
+		logger.log(Level.INFO,"----->Inside Loan Application Controller Working!");
 		
 	}
 

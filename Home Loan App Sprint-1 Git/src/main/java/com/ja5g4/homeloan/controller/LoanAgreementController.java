@@ -1,6 +1,8 @@
 package com.ja5g4.homeloan.controller;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.validation.Valid;
 
@@ -30,13 +32,14 @@ import io.swagger.annotations.ApiOperation;
 @ApiModel(value = "Loan Agreement Rest Controller" , description = "Holds all APIs related to the Loan Agreement")
 public class LoanAgreementController {
 	
-
+Logger logger = Logger.getLogger(LoanAgreementController.class.getName());
 public LoanAgreementController() {
-	System.out.println("-----> Loan Agreement Rest Controller Working!");
+	logger.log(Level.INFO,"----->Inside Loan Agreement Controller Working!");
 }
 
 @Autowired
 ILoanAgreementService loanAgreement_service;
+
 
 @GetMapping("/home")
 public String homeRequest() {
