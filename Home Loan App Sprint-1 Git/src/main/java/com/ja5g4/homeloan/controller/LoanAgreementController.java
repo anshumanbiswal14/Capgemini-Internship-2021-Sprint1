@@ -38,7 +38,7 @@ public LoanAgreementController() {
 }
 
 @Autowired
-ILoanAgreementService loanAgreement_service;
+ILoanAgreementService loanAgreementService;
 
 
 @GetMapping("/home")
@@ -49,35 +49,35 @@ public String homeRequest() {
 @ApiOperation(value = "POST mapping to add new loan agreements to the LOAN_AGREEMENT table in the Database", response = LoanAgreement.class)
 @PostMapping("/add")
 public LoanAgreement addLoanAgreement(@RequestBody @Valid LoanAgreement loanAgreement) {
-	this.loanAgreement_service.addLoanAgreement(loanAgreement);
+	this.loanAgreementService.addLoanAgreement(loanAgreement);
 	return loanAgreement;
 }
 
 @ApiOperation(value = "PUT mapping to update the loan agreements in the LOAN_AGREEMENT table in the Database", response = LoanAgreement.class)
 @PutMapping("/update")
 public LoanAgreement updateLoanAgreement(@RequestBody @Valid LoanAgreement loanAgreement) throws InvalidLoanAgreementException {
-	this.loanAgreement_service.updateLoanAgreement(loanAgreement);
+	this.loanAgreementService.updateLoanAgreement(loanAgreement);
 	return loanAgreement;
 }
 
 @ApiOperation(value = "DELETE mapping to delete the agreements from LOAN_AGREEMENT table by agreement ID in the Database", response = LoanAgreement.class)
 @DeleteMapping("/delete/{loanid}")
 public LoanAgreement deleteLoanAgreement(@PathVariable("loanid") long loanAgreementId) throws InvalidLoanAgreementException {
-	return this.loanAgreement_service.deleteLoanAgreement(loanAgreementId);
+	return this.loanAgreementService.deleteLoanAgreement(loanAgreementId);
 		
 }
 
 @ApiOperation(value = "GET mapping to view all the loan agreements in the database ", response = List.class)
 @GetMapping("/viewallloan")
-public List<LoanAgreement> retrieveAllLoanAgreement(@RequestBody @Valid LoanAgreement loanAgreement){
-	return this.loanAgreement_service.retrieveAllLoanAgreement();
+public List<LoanAgreement> retrieveAllLoanAgreement(){
+	return this.loanAgreementService.retrieveAllLoanAgreement();
 	
 }
 
 @ApiOperation(value = "GET mapping to view all the loan agreements by loan ID", response = LoanAgreement.class)
 @GetMapping("/viewbyid/{loanid}")
 public LoanAgreement retrieveLoanAgreementById(@PathVariable("loanid") long loanAgreementId) throws InvalidLoanAgreementException{
-	return this.loanAgreement_service.retrieveLoanAgreementById(loanAgreementId);
+	return this.loanAgreementService.retrieveLoanAgreementById(loanAgreementId);
 	
 }
 

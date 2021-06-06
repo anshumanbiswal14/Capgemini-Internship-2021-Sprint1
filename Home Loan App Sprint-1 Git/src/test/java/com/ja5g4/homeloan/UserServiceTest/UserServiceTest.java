@@ -2,10 +2,10 @@ package com.ja5g4.homeloan.UserServiceTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+
 import static org.mockito.Mockito.when;
 
-import java.time.LocalDate;
+
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,11 +13,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockitoAnnotations;
 
-import com.ja5g4.homeloan.entities.Customer;
 import com.ja5g4.homeloan.entities.User;
-import com.ja5g4.homeloan.repository.ICustomerRepository;
+
 import com.ja5g4.homeloan.repository.IUserRepository;
-import com.ja5g4.homeloan.service.ICustomerServiceImpl;
+
 import com.ja5g4.homeloan.service.IUserServiceImpl;
 
 public class UserServiceTest {

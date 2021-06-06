@@ -74,7 +74,7 @@ public class CustomerServiceController {
 	}
 	@ApiOperation(value = "GET mapping to get all customers from the database", response = List.class )
 	@GetMapping("/viewall")
-	public List<Customer> viewAllCustomers(@RequestBody @Valid Customer customer){
+	public List<Customer> viewAllCustomers(){
 		return this.customerService.viewAllCustomers();
 		
 	}

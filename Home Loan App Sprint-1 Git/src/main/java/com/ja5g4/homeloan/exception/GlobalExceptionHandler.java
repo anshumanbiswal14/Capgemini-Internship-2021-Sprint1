@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
-	
+	private String desc="Description";
 	
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
@@ -31,14 +31,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 			map.put(fieldName, msg);
 		});
 		
-		return new ResponseEntity<Object>(map,HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
 	}
 	
 
 	@ExceptionHandler(AdminApprovalException.class)
 	public ResponseEntity<String> handleAdminApprovalException(AdminApprovalException ex) {
 		HttpHeaders header = new HttpHeaders();
-		header.add("Description", "Trying to get Admin Approval");
+		header.add(desc, "Trying to get Admin Approval");
 
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).headers(header).body(ex.getMessage());
 		
@@ -48,7 +48,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(CustomerNotFoundException.class)
 	public ResponseEntity<String> handleCustomerException(CustomerNotFoundException ex) {
 		HttpHeaders header = new HttpHeaders();
-		header.add("Description", "Trying to get a customer");
+		header.add(desc, "Trying to get a customer");
 
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).headers(header).body(ex.getMessage());
 		
@@ -58,7 +58,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(FinanceVerificationException.class)
 	public ResponseEntity<String> handleFinanceException(FinanceVerificationException ex) {
 		HttpHeaders header = new HttpHeaders();
-		header.add("Description", "Trying to get a Finance Verification Officer");
+		header.add(desc, "Trying to get a Finance Verification Officer");
 
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).headers(header).body(ex.getMessage());
 		
@@ -66,7 +66,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(InvalidCredentialException.class)
 	public ResponseEntity<String> handleInvalidCredentialException(InvalidCredentialException ex) {
 		HttpHeaders header = new HttpHeaders();
-		header.add("Description", "Trying to get Credentials");
+		header.add(desc, "Trying to get Credentials");
 
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).headers(header).body(ex.getMessage());
 		
@@ -74,7 +74,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(InvalidLoanApplicationException.class)
 	public ResponseEntity<String> handleInvalidLoanApplicationException(InvalidLoanApplicationException ex) {
 		HttpHeaders header = new HttpHeaders();
-		header.add("Description", "Trying to get Loan Application");
+		header.add(desc, "Trying to get Loan Application");
 
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).headers(header).body(ex.getMessage());
 		
@@ -82,7 +82,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(InvalidLoanAgreementException.class)
 	public ResponseEntity<String> handleInvalidLoanAgrementException(InvalidLoanAgreementException ex) {
 		HttpHeaders header = new HttpHeaders();
-		header.add("Description", "Trying to get Loan Agreement");
+		header.add(desc, "Trying to get Loan Agreement");
 
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).headers(header).body(ex.getMessage());
 		
@@ -91,7 +91,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(LandVerificationException.class)
 	public ResponseEntity<String> handleLandException(LandVerificationException ex) {
 		HttpHeaders header = new HttpHeaders();
-		header.add("Description", "Trying to get a Land Verification Officer");
+		header.add(desc, "Trying to get a Land Verification Officer");
 
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).headers(header).build();
 		

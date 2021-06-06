@@ -32,7 +32,7 @@ public class LoanAgreement {
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "LOAN_EMI", joinColumns = @JoinColumn(name = "loanAgreementId" ),
-	inverseJoinColumns = @JoinColumn(name = "EMIId"))
+	inverseJoinColumns = @JoinColumn(name = "emiId"))
 	@ApiModelProperty(name = "Set of all EMIs", value = "It holds the set of all EMIs", required = true)
 	private Set<EMI> allemis = new HashSet<>();
 	
@@ -89,6 +89,7 @@ public class LoanAgreement {
 		LoanAgreement other = (LoanAgreement) obj;
 		if (loanAgreementId != other.loanAgreementId)
 			return false;
+	
 		return true;
 	}
 	@Override

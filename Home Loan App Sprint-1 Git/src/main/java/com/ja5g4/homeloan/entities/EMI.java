@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotNull;
+
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -23,7 +23,7 @@ public class EMI  {
 	@ApiModelProperty(name = "EMI ID", value = "holding EMI ID", required = true)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long EMIId;
+	private Long emiId;
 	
 	@ApiModelProperty(name = "Due Date", value = "It holds the Due Date", required = true)
 	@JsonFormat(pattern="yyyy-MM-dd")
@@ -46,19 +46,19 @@ public class EMI  {
 		super();	
 	}
 	
-	public EMI(long eMIId, LocalDate dueDate, double emiAmount, double loanAmount, double interestAmount) {
+	public EMI(long emiId, LocalDate dueDate, double emiAmount, double loanAmount, double interestAmount) {
 		super();
-		EMIId = eMIId;
+		this.emiId = emiId;
 		this.dueDate = dueDate;
 		this.emiAmount = emiAmount;
 		this.loanAmount = loanAmount;
 		this.interestAmount = interestAmount;
 	}
 	public long getEMIId() {
-		return EMIId;
+		return emiId;
 	}
-	public void setEMIId(long eMIId) {
-		EMIId = eMIId;
+	public void setEMIId(long emiId) {
+		this.emiId = emiId;
 	}
 	public LocalDate getDueDate() {
 		return dueDate;
@@ -88,7 +88,7 @@ public class EMI  {
 
 	@Override
 	public String toString() {
-		return "EMI [EMIId=" + EMIId + ", dueDate=" + dueDate + ", emiAmount=" + emiAmount + ", loanAmount="
+		return "EMI [EMIId=" + emiId + ", dueDate=" + dueDate + ", emiAmount=" + emiAmount + ", loanAmount="
 				+ loanAmount + ", interestAmount=" + interestAmount + "]";
 	}
 	

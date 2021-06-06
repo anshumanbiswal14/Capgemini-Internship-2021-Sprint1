@@ -26,7 +26,7 @@ import com.ja5g4.homeloan.repository.ILoanApplicationRepository;
 import com.ja5g4.homeloan.service.ICustomerServiceImpl;
 
 @SpringBootTest
-public class CustomerServiceTest {
+ class CustomerServiceTest {
 
 	ICustomerRepository customerRepo;
 	ILoanApplicationRepository applicationRepo;
@@ -174,18 +174,6 @@ public class CustomerServiceTest {
 		
 	}
 	
-	/*
-	 * @Test
-	 * 
-	 * @DisplayName("Test for find by Date") void testFindCustomerByDate() {
-	 * LocalDate input = LocalDate.parse("2021-05-05"); Customer customer =
-	 * mock(Customer.class); LoanAgreement agreement=mock(LoanAgreement.class);
-	 * List<Customer> optional_customer = List.of(customer); List<LoanAgreement>
-	 * optional_agreement=List.of();
-	 * when(applicationRepo.findById(input)).thenReturn(optional_customer);
-	 * Optional<Customer> customer_test =
-	 * Optional.of(customerService.viewCustomerList(input));
-	 * assertEquals(optional_customer, customer_test); }
-	 */
+	
 
 }
