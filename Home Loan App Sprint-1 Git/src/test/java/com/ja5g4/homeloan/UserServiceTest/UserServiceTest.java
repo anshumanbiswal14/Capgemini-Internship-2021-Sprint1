@@ -19,7 +19,7 @@ import com.ja5g4.homeloan.repository.IUserRepository;
 
 import com.ja5g4.homeloan.service.IUserServiceImpl;
 
-public class UserServiceTest {
+ class UserServiceTest {
 	IUserRepository userRepo;
 	private static IUserServiceImpl userService;
 	private static AutoCloseable ac;

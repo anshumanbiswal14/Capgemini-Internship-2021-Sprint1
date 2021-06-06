@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.DecimalMin;
-
+import javax.validation.constraints.FutureOrPresent;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
@@ -28,6 +28,7 @@ public class LoanApplication {
 	
 	@Column
 	@ApiModelProperty(name = "Loan application date", value = "It holds the loan application date", required = true)
+	@FutureOrPresent
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate applicationDate;
 	

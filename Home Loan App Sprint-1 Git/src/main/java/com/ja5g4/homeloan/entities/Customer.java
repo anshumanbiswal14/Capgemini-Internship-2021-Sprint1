@@ -6,6 +6,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -49,6 +50,7 @@ public class Customer extends User {
 
 	@ApiModelProperty(name = "Customer DOB", value = "holding customer DOB", required = true)
 	@JsonFormat(pattern = "yyy-MM-dd")
+	@Past
 	private LocalDate dateOfBirth;
 
 	@ApiModelProperty(name = "Customer Gender", value = "holding customer gender", required = true)
