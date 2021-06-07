@@ -1,6 +1,6 @@
 package com.ja5g4.homeloan.controller;
 
-import java.util.logging.Level;
+import java.util.logging.Level; 
 import java.util.logging.Logger;
 
 import javax.validation.Valid;
@@ -19,13 +19,16 @@ import com.ja5g4.homeloan.exception.InvalidLoanApplicationException;
 import com.ja5g4.homeloan.service.ILandVerificationService;
 
 import io.swagger.annotations.ApiOperation;
-/*Land Verification Officer REST Controller
- *Land Verification controller contain a single method to alter the loan application
+
+/* Land Verification Officer REST Controller
+ * Land Verification controller contain a single method to alter the loan application
  * "/home" is to check the home page 
  * "/landstatus"is a method the update the status of the loan application along 
  * with other field officer find important to change
+ * 
  * Author : Gaurav Shrivastava 
  * */
+
 @Validated
 @RestController
 @RequestMapping("/landverify")
@@ -54,4 +57,3 @@ public class LandVerificationController {
 	}
 		
 }
-

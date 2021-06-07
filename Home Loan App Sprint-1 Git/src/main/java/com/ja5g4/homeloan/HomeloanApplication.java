@@ -1,7 +1,6 @@
 package com.ja5g4.homeloan;
 
-
-import java.util.logging.Level;
+import java.util.logging.Level; 
 import java.util.logging.Logger;
 
 import org.springframework.boot.SpringApplication;

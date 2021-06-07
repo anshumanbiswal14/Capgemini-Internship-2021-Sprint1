@@ -1,6 +1,6 @@
 package com.ja5g4.homeloan.controller;
 
-import java.time.LocalDate;
+import java.time.LocalDate; 
 
 import java.util.List;
 import java.util.logging.Level;
@@ -26,6 +26,19 @@ import com.ja5g4.homeloan.service.ICustomerService;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
+
+/*Customer Service REST Controller
+ * Customer service controller contains various methods to interact with the loan user table
+ * "/home" is to check the home page 
+ * "/add" is to add new customer to the database
+ * "/view/{cust_id}" to view the customer details by using the customer ID
+ * "/update" to update the customer details or make any specific changes to details
+ * "/delete" to delete the customer from the database
+ * "/viewall" to viewall the customers available in the database
+ * "/viewbydate/{date_of_applicaton}"
+
+ * Author : Anshuman Biswal 
+ * */
 
 @Validated
 @RestController

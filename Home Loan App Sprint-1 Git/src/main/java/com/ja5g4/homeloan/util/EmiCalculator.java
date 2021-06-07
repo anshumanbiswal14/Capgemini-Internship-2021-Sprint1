@@ -52,9 +52,5 @@ public class EmiCalculator {
 		return "EmiCalculator [loanAmount=" + loanAmount + ", rateOfInterest=" + rateOfInterest + ", tenure=" + tenure
 				+ "]";
 	}
-	
-	
-	
-	
 
 }

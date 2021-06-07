@@ -1,11 +1,9 @@
 package com.ja5g4.homeloan.UserServiceTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import static org.mockito.Mockito.mock;
-
 import static org.mockito.Mockito.when;
-
-
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,10 +12,16 @@ import org.junit.jupiter.api.Test;
 import org.mockito.MockitoAnnotations;
 
 import com.ja5g4.homeloan.entities.User;
-
 import com.ja5g4.homeloan.repository.IUserRepository;
-
 import com.ja5g4.homeloan.service.IUserServiceImpl;
+
+/* User Service Junit Testing
+ * Testing the condition by adding an Admin, in Admin we pass UserId, Password and Role.
+ * Testing the condition by adding a Land Officer, in Land Officer we pass UserId, Password and Role. 
+ * Testing the condition by adding a Finance Officer, in Finance Officer we pass UserId, Password and Role.
+ * 
+ * Author : Blesy Helen
+ * */
 
  class UserServiceTest {
 	IUserRepository userRepo;
@@ -87,7 +91,5 @@ import com.ja5g4.homeloan.service.IUserServiceImpl;
 	    
 		assertEquals(input,user_test);
 	}
-	
-	
-	
+
 }

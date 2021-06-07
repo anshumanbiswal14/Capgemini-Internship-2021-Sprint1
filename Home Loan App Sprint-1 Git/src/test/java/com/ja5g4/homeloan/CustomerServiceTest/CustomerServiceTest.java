@@ -25,6 +25,16 @@ import com.ja5g4.homeloan.repository.ILoanAgreementRepository;
 import com.ja5g4.homeloan.repository.ILoanApplicationRepository;
 import com.ja5g4.homeloan.service.ICustomerServiceImpl;
 
+/* Customer Service Junit Testing
+ * Testing add new customer by passing all the required parameters
+ * Testing view all customers by passing all the required parameters
+ * Testing view customer by customer Id by passing all the required parameters
+ * Testing delete customer by customer Id by passing all the required parameters
+ * Testing update customer details by passing all the required parameters
+ * 
+ * Author : Anshuman Biswal
+ * */
+
 @SpringBootTest
  class CustomerServiceTest {
 
@@ -48,6 +58,7 @@ import com.ja5g4.homeloan.service.ICustomerServiceImpl;
 	{
 		ac.close();
 	}
+	
 	@Test
 	// @Disabled
 	@DisplayName("Test-Save-Customer")
@@ -74,6 +85,7 @@ import com.ja5g4.homeloan.service.ICustomerServiceImpl;
 	// @Disabled
 	@DisplayName("Test-Get All Customer")
 	void testGetAllCustomers() {
+		@SuppressWarnings("unchecked")
 		List<Customer> customerList = mock(List.class);
 		when(customerRepo.findAll()).thenReturn(customerList);
 		List<Customer> outputCustomerList = customerService.viewAllCustomers();
@@ -173,7 +185,4 @@ import com.ja5g4.homeloan.service.ICustomerServiceImpl;
 		assertEquals(updateCustomer,customer_test);
 		
 	}
-	
-	
-
 }

@@ -1,6 +1,6 @@
 package com.ja5g4.homeloan.controller;
 
-import java.util.logging.Level;
+import java.util.logging.Level; 
 import java.util.logging.Logger;
 
 import javax.validation.Valid;
@@ -19,13 +19,16 @@ import com.ja5g4.homeloan.service.IFinanceVerificationService;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
-/*Finance Verification Officer REST Controller
- *Finance Verification controller contain a single method to alter the loan application
- * "/home" is to check the home page 
- * "/financestatus"is a method the update the status of the loan application along 
- * with other field officer find important to change
- * Author : Gaurav Shrivastava 
+
+/*  Finance Verification Officer REST Controller
+ *  Finance Verification controller contain a single method to alter the loan application
+ *  "/home" is to check the home page 
+ *  "/financestatus"is a method the update the status of the loan application along 
+ *  with other field officer find important to change
+ *  
+ *  Author : Gaurav Shrivastava 
  * */
+
 @Validated
 @RestController
 @RequestMapping("/financeverify")
@@ -57,4 +60,3 @@ public class FinanceVerificationController {
 	}
 
 }
-

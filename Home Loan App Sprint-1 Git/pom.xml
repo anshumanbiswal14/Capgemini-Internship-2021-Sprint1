@@ -90,11 +90,9 @@
 				<sonar.host.url> http://localhost:9000 </sonar.host.url>
 
 				<sonar.host.url> http://localhost:9000 </sonar.host.url>
-
 				<!-- <sonar.jdbc.url>your database URL</sonar.jdbc.url> <sonar.jdbc.driver>Your 
 					database driver</sonar.jdbc.driver> <sonar.jdbc.username>DB username</sonar.jdbc.username> 
 					<sonar.jdbc.password>db password</sonar.jdbc.password> -->
-
 			</properties>
 		</profile>
 	</profiles>

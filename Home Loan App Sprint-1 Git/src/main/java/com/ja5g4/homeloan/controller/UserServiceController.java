@@ -1,6 +1,6 @@
 package com.ja5g4.homeloan.controller;
 
-import java.util.logging.Level;
+import java.util.logging.Level; 
 import java.util.logging.Logger;
 import javax.validation.Valid;
 
@@ -19,6 +19,19 @@ import com.ja5g4.homeloan.service.IUserService;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
+
+/* User Service Controller
+ * User Service Controller contains various methods to interact with the loan user table
+ * "/home" is to check the home page 
+ * "/adduserasadmin" is to add admin to the user table
+ * "/adduseraslandofficer" to add land officer to the user table
+ * "/adduserasfinanceofficer" to add finance officer to the user table
+ * "/signin" to sign in into the account
+ * "/signout" to sign out of the account
+ * 
+ * Author : Blesy Helen
+ * */
+
 
 @Validated
 @RestController

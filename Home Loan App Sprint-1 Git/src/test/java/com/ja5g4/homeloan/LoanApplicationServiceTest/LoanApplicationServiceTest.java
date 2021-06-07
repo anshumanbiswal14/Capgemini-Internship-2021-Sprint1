@@ -1,6 +1,7 @@
 package com.ja5g4.homeloan.LoanApplicationServiceTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -22,6 +23,15 @@ import com.ja5g4.homeloan.entities.Status;
 import com.ja5g4.homeloan.exception.InvalidLoanApplicationException;
 import com.ja5g4.homeloan.repository.ILoanApplicationRepository;
 import com.ja5g4.homeloan.service.ILoanApplicationServiceImpl;
+
+/* Loan Application Service Junit Testing
+ * Testing add new loan application by passing all the required parameters
+ * Testing get loan application by Id and by passing all the required parameters
+ * Testing update loan application by Id and passing all the required parameters
+ * Testing delete loan application by Id and passing all the required parameters
+ * 
+ * Author : Ashwin
+ * */
 
 @SpringBootTest
 public class LoanApplicationServiceTest {
@@ -71,6 +81,7 @@ public class LoanApplicationServiceTest {
 	// @Disabled
 	@DisplayName("Test - Get All Loan Applications")
 	void testretrieveAllLoanApplication() {
+		
 		List<LoanApplication> applicationList = mock(List.class);
 		when(applicationrepo.findAll()).thenReturn(applicationList);
 		List<LoanApplication> outputApplicationList = applicationService.retrieveAllLoanApplication();

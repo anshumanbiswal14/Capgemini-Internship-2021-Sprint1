@@ -1,10 +1,10 @@
 package com.ja5g4.homeloan.service;
 
 import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import java.util.logging.Logger;
 
 import javax.transaction.Transactional;
@@ -18,6 +18,19 @@ import com.ja5g4.homeloan.exception.CustomerNotFoundException;
 import com.ja5g4.homeloan.repository.ICustomerRepository;
 import com.ja5g4.homeloan.repository.ILoanAgreementRepository;
 import com.ja5g4.homeloan.repository.ILoanApplicationRepository;
+
+
+/*Customer Service
+ * ICustomerServiceImpl implements the interface ICustomerService
+ * Customer addCustomer(Customer customer) to add new customer to table
+ * Customer updateCustomer(Customer customer) throws CustomerNotFoundException to update customer details
+ * Customer deleteCustomer(int custid) throws CustomerNotFoundException to delete customer using Id
+ * Customer viewCustomer(int custid) throws CustomerNotFoundException view customer by Id
+ * List<Customer> viewAllCustomers() to view all the customers in the table
+ * List<Customer> viewCustomerList(LocalDate dateOfApplication) view customer details having loan agreement as per loan application date
+ * 
+ * Author : Anshuman Biswal
+ * */
 
 @Service
 public class ICustomerServiceImpl implements ICustomerService {

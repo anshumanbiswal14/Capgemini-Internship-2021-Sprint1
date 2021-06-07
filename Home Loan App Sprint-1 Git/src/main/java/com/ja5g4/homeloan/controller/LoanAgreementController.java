@@ -1,6 +1,6 @@
 package com.ja5g4.homeloan.controller;
 
-import java.util.List;
+import java.util.List; 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,6 +24,18 @@ import com.ja5g4.homeloan.service.ILoanAgreementService;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
+
+/* Loan Agreement Controller
+ * Loan Agreement controller contains various methods to interact with the loan agreement table
+  * "/home" is to check the home page 
+ * "/add" is to add new loan agreement to the database by using userid
+ * "/viewbyid/{loan_id}" to view the loan agreement details by using the loan ID
+ * "/update" to update the loan agreement details or make any specific changes to details
+ * "/delete" to delete the loan agreement from the database
+ * "/viewallloan" to viewall the loan agreements available in the database
+ * 
+ * Author : Bharath Surya
+ * */
 
 
 @Validated

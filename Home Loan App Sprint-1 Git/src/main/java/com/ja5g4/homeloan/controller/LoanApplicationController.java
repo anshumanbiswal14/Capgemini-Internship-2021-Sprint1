@@ -1,6 +1,6 @@
 package com.ja5g4.homeloan.controller;
 
-import java.util.List;
+import java.util.List; 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,6 +23,19 @@ import com.ja5g4.homeloan.service.ILoanApplicationService;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
+
+/*Loan Application REST Controller
+ * Loan Application controller contains various methods to interact with the loan application table
+ * "/home" is to check the home page 
+ * "/add" is to add new loan application connected to an user to the database
+ * "/viewbyid/{loan_id}" to view the application details by using the loan ID
+ * "/update" to update the application details or make any specific changes to details
+ * "/delete/{loan_id}" to delete the application from the database using the loan_id
+ * "/viewallloan" to viewall the loan applications available in the database
+
+ * Author : Ashwin 
+ * */
+
 
 @Validated
 @RestController
